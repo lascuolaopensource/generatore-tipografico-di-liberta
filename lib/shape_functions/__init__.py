@@ -72,10 +72,13 @@ def make_clockwise(gly, cw):
     # Contour operations - Selecting last drawn contour
     c = gly[-1]
 
+    # Contour direction
+    d = c.clockwise
+
     # Making clockwise or anticlockwise
-    if c.clockwise == 0:
-        c.reverseContour()
-    if cw == False:
+    if (d and cw) or not (d and cw):
+        pass
+    else:
         c.reverseContour()
 
     return gly
