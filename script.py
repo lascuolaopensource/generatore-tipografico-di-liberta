@@ -21,18 +21,19 @@ from shape_functions import *
 # Absolute path of folder containing glyphs'txts
 txt_path = "/Users/giovanniabbatepaolo/Desktop/SOS/generatore tipografico di libertà/assets/letters"
 
-# Set baseline row (from bottom of txt)
+# Set glyphs'baseline row (counting from bottom of txt)
 baseline = 2
 
-# Set width of unit
-# h_step = 100
+# Set width of "pixelone"
+h_step = 100
+
+# Set number of "pixelone" sub-units
+col = 1 
+row = 1
 
 # Set name of set (".alt1", ".alt2", ...)
 suffix = ""
 
-
-col = 1 
-row = 1
 
 
 
@@ -61,33 +62,29 @@ dsc_hgt = -v_step * baseline
 
 
 
-h_step = v_step
-sh = h_step/col
-sv = v_step/row
+# h_step = v_step
+# sh = h_step/col
+# sv = v_step/row
 
 
 
 
-### CALCOLO FATTORI DI SCALA E TRASLAZIONE
-box = 186
-box_scl_hor = sh/box
-box_scl_ver = sv/box
+# ### CALCOLO FATTORI DI SCALA E TRASLAZIONE
+# box = 186
+# box_scl_hor = sh/box
+# box_scl_ver = sv/box
 
 
 
 ### SYNTASSI
 
 rectangle_properties = {
-    "width": sh*.9,
-    "height": sv*.9,
     "scale": (1,1),
     "rotation": 0,
     "clockwise": True
     }
 
 ellipse_properties = {
-    "width": sh*.9,
-    "height": sv*.9,
     "squaring": .6,
     "clockwise": True
     }
@@ -143,4 +140,12 @@ sintassi = {
 
 
 # Iterating over the dictionary
-draw_bit_fnt(fnt, fnt_dict, suffix, dsc_hgt, h_step, v_step, row, col, sintassi)
+draw_bit_fnt(fnt=fnt,
+             fnt_dict=fnt_dict,
+             suffix=suffix,
+             dsc_hgt=dsc_hgt,
+             h_step=h_step,
+             v_step=v_step,
+             row=row,
+             col=col,
+             syntax=sintassi)

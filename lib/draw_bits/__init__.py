@@ -76,13 +76,13 @@ def draw_bit_gly(gly, gly_dict, dsc_hgt, h_step, v_step, row, col, syntax):
 # This function generates a full set of *alternative* (alt) glyphs from instructions.
 
 # RFont, dictionary, string, float, float, float, dictionary -> RFont
-def draw_bit_fnt(fnt, fnt_dict, alt, dsc_hgt, h_step, v_step, row, col, syntax):
+def draw_bit_fnt(fnt, fnt_dict, suffix, dsc_hgt, h_step, v_step, row, col, syntax):
 
     # Iterating over the dictionary (the instructions)
     for gly_name in fnt_dict:
 
         # Creating alternative glyph
-        gly = fnt.newGlyph(gly_name + alt)
+        gly = fnt.newGlyph(gly_name + suffix)
         gly.autoUnicodes()
         gly.clear()
 

@@ -103,8 +103,6 @@ def do_nothing(gly, position, size, properties):
 def rectangle(gly, position, size, properties):
 
     # Getting rectangle properties
-    wdt = properties["width"]
-    hgt = properties["height"]
     scl = properties["scale"]
     rot = properties["rotation"]
     cw  = properties["clockwise"]
@@ -131,8 +129,6 @@ def rectangle(gly, position, size, properties):
 def ellipse(gly, position, size, properties):
 
     # Getting ellipse properties
-    wdt = properties["width"]
-    hgt = properties["height"]
     s   = properties["squaring"]
     cw  = properties["clockwise"]
 
@@ -158,8 +154,6 @@ def ellipse(gly, position, size, properties):
 def quarter(gly, position, size, properties):
 
     # Getting quarter properties
-    wdt = properties["width"]
-    hgt = properties["height"]
     sqr = properties["squaring"]
     orn = properties["orientation"]
     cw  = properties["clockwise"]
