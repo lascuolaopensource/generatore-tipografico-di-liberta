@@ -80,20 +80,30 @@ dsc_hgt = -v_step * gly_baseline
 
 rectangle_properties = {
     "scale": (1,1),
-    "rotation": 0,
+    "rotation": 30,
     "clockwise": True
     }
 
 ellipse_properties = {
     "squaring": .6,
+    "scale": (1,1),
+    "rotation": 30,
     "clockwise": True
     }
+
+quarter_properties = {
+    "squaring": .6,
+    "orientation": "NW",
+    "scale": (1,1),
+    "rotation": 0,
+    "clockwise": True
+}
 
 
 sintassi = {
     ".": (do_nothing, {"null": "null"}),
-    "@": (random_function, [(rectangle, rectangle_properties), (ellipse, ellipse_properties)]),
-    "#": (random_function, [(rectangle, rectangle_properties), (ellipse, ellipse_properties)]),
+    "@": (ellipse_quarter, quarter_properties),
+    "#": (ellipse_quarter, quarter_properties),
     "%": (do_nothing, {"null": "null"}),
     "&": (do_nothing, {"null": "null"}),
     "$": (do_nothing, {"null": "null"}),
@@ -106,8 +116,6 @@ draw_bit_fnt(fnt=fnt,
              fnt_dict=fnt_dict,
              suffix=set_suffix,
              dsc_hgt=dsc_hgt,
-             h_step=h_step,
-             v_step=v_step,
-             row=row,
-             col=col,
+             box_size=(h_step, v_step),
+             box_layout=(row, col),
              syntax=sintassi)

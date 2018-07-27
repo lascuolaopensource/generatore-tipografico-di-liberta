@@ -21,7 +21,6 @@ def interpolate_points(pA, pB, f):
 
 # drawer
 # A general function that links any given points
-# and returns the drawn contour
 
 # RGlyph, list, boolean -> RGlyph
 def drawer(gly, pts):
@@ -61,27 +60,25 @@ def drawer(gly, pts):
             pen.curveTo(cpt_o, cpt_i, pt[1])
 
     pen.closePath()
+    return gly
 
 
 
 # make_clockwise
+# does what it says
 
-# RGlyph, boolean -> RGlyph
-def make_clockwise(gly, cw):
+# RContour, boolean -> RContour
+def make_clockwise(c, cw):
 
-    # Contour operations - Selecting last drawn contour
-    c = gly[-1]
-
-    # Contour direction
-    d = c.clockwise
-
-    # Making clockwise or anticlockwise
-    if (d and cw) or not (d and cw):
-        pass
-    else:
+    # Making clockwise anyways
+    if c.clockwise == 0:
         c.reverseContour()
 
-    return gly
+    # Inverting if necessary
+    if cw == False:
+        c.reverseContour()
+
+    return c
 
 
 
@@ -93,76 +90,99 @@ def make_clockwise(gly, cw):
 # do_nothing
 # Does nothing - Used to leave blank space
 
-# Pen, float, float, dict -> Pen
+# RGlyph, tuple, tuple, dict ->
 def do_nothing(gly, position, size, properties):
     pass
 
 
 
 # rectangle
-# Draw a square of a given side
 
-# RGlyph, float, float, dict ->
+# RGlyph, (float, float), (float, float), dict ->
 def rectangle(gly, position, size, properties):
 
     # Getting rectangle properties
     scl = properties["scale"]
     rot = properties["rotation"]
-    cw  = properties["clockwise"]
-
-    # Coordinates
-    x, y = position
+    clw = properties["clockwise"]
 
     # Useful shortcut
     w = size[0]/2
     h = size[1]/2
 
-    # Drawing contour
-    drawer(gly,
-           [(x-w, y-h), (x-w, y+h), (x+w, y+h), (x+w, y-h)])
+    # Points (ideally, we draw at (0,0), then we translate)
+    p0 = -w, -h
+    p1 = -w,  h
+    p2 =  w,  h
+    p3 =  w, -h
 
-    make_clockwise(gly, cw)
+    # Drawing contour
+    drawer(gly, [p0, p1, p2, p3])
+
+    # Contour operations: scale, rotate, translate, clockwise, round points
+    c = gly[-1]
+    c.scale(scl)
+    c.rotate(rot)
+    c.move(position)
+    make_clockwise(c, clw)
+    c.round()
+    gly.update()
 
 
 
 # ellipse
 # Draws an ellipse
 
-# RGlyph, float, float, dict ->
+# RGlyph, (float, float), (float, float) dict ->
 def ellipse(gly, position, size, properties):
 
-    # Getting ellipse properties
-    s   = properties["squaring"]
-    cw  = properties["clockwise"]
-
-    # Coordinates
-    x, y = position
+    # Getting rectangle properties
+    sqr = properties["squaring"]
+    scl = properties["scale"]
+    rot = properties["rotation"]
+    clw = properties["clockwise"]
 
     # Useful shortcut
     w = size[0]/2
     h = size[1]/2
 
+    # Points (ideally, we draw at (0,0), then we translate)
+    p0 = -w,  0
+    p1 = -w,  h
+    p2 =  0,  h
+    p3 =  w,  h
+    p4 =  w,  0
+    p5 =  w, -h
+    p6 =  0, -h
+    p7 = -w, -h
+
     # Drawing contour
     drawer(gly,
-           [(x-w, y), ((x-w, y+h), (x, y+h), s), ((x+w, y+h), (x+w, y), s), ((x+w, y-h), (x, y-h), s), ((x-w, y-h), (x-w, y), s)])
+           [p0, (p1, p2, sqr), (p3, p4, sqr), (p5, p6, sqr), (p7, p0, sqr)])
 
-    make_clockwise(gly, cw)
+    # Contour operations: scale, rotate, translate, clockwise, round points
+    c = gly[-1]
+    c.scale(scl)
+    c.rotate(rot)
+    c.move(position)
+    make_clockwise(c, clw)
+    c.round()
+    gly.update()
 
 
 
 # quarter
 # Draws a quarter of circumference
 
-# RGlyph, float, float, dict ->
-def quarter(gly, position, size, properties):
+# RGlyph, (float, float), (float, float), dict ->
+def ellipse_quarter(gly, position, size, properties):
 
     # Getting quarter properties
     sqr = properties["squaring"]
     orn = properties["orientation"]
-    cw  = properties["clockwise"]
-
-    # Coordinates
-    x, y = position
+    scl = properties["scale"]
+    rot = properties["rotation"]
+    clw = properties["clockwise"]
 
     # Useful shortcut
     w = size[0]/2
@@ -180,7 +200,9 @@ def quarter(gly, position, size, properties):
     # Contour operations - Selecting contour
     c = gly[-1]
 
-    # Rotating
+    c.scale(scl)
+
+    # Mirroring
     if "N" in orn:
         if "W" in orn:
             c.scale((-1,  1))
@@ -192,8 +214,9 @@ def quarter(gly, position, size, properties):
         elif "E" in orn:
             c.scale(( 1, -1))
 
-    make_clockwise(gly, cw)
-    c.move((x, y))
+    c.move(position)
+    make_clockwise(c, clw)
+    c.round()
     gly.update()
 
 
@@ -201,18 +224,15 @@ def quarter(gly, position, size, properties):
 # quarter
 # Draws a quarter of circumference
 
-# RGlyph, float, float, dict ->
-def semiellipse(gly, position, size, properties):
+# RGlyph, (float, float), (float, float), dict ->
+def ellipse_half(gly, position, size, properties):
 
     # Getting quarter properties
-    wdt = properties ['width']
-    hgt = properties ['height']
-    sqr = properties ['squaring']
-    orn = properties ["orientation"]
-    cw  = properties ['clockwise']
-
-    # Coordinates
-    x, y = position
+    sqr = properties["squaring"]
+    orn = properties["orientation"]
+    scl = properties["scale"]
+    rot = properties["rotation"]
+    clw = properties["clockwise"]
 
     # Useful shortcut
     w = size[0]/2
@@ -236,17 +256,19 @@ def semiellipse(gly, position, size, properties):
     # Contour operations - Selecting contour
     c = gly[-1]
 
-    # Rotating
+    # Orientating
     if   "N" == orn:
         pass
     elif "S" == orn:
         c.scale((1, -1))
     elif "W" == orn:
         c.rotate(90)
+        c.scale(size[0]/size[1], size[1]/size[0])
     elif "E" == orn:
-        c.rotate(90)
+        c.rotate(-90)
+        c.scale(size[0]/size[1], size[1]/size[0])
 
-    make_clockwise(gly, cw)
+    make_clockwise(c, clw)
     c.move((x, y))
     gly.update()
 
