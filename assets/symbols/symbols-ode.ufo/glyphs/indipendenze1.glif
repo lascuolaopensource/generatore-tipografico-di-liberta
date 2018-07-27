@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="indipendenze1" format="1">
+  <advance width="500"/>
+  <outline>
+    <contour>
+      <point x="0" y="100" type="line"/>
+      <point x="0" y="0" type="line"/>
+      <point x="100" y="0" type="line"/>
+      <point x="100" y="100" type="line"/>
+    </contour>
+    <contour>
+      <point x="93" y="7" type="line"/>
+      <point x="7" y="7" type="line"/>
+      <point x="7" y="93" type="line"/>
+      <point x="93" y="93" type="line"/>
+    </contour>
+    <contour>
+      <point x="74" y="74" type="line"/>
+      <point x="26" y="74" type="line"/>
+      <point x="26" y="26" type="line"/>
+      <point x="74" y="26" type="line"/>
+    </contour>
+  </outline>
+</glyph>

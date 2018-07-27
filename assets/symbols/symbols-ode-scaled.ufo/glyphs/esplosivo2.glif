@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="esplosivo2" format="1">
+  <advance width="500"/>
+  <outline>
+    <contour>
+      <point x="193" y="193" type="line"/>
+      <point x="193" y="193" type="line"/>
+      <point x="87" y="193" type="line"/>
+      <point x="-7" y="193" type="line"/>
+      <point x="-7" y="99" type="line"/>
+      <point x="-7" y="-7" type="line"/>
+      <point x="99" y="-7" type="line"/>
+      <point x="99" y="-7" type="line"/>
+      <point x="193" y="-7" type="line"/>
+      <point x="193" y="87" type="line"/>
+      <point x="193" y="87" type="line"/>
+    </contour>
+    <contour>
+      <point x="7" y="179" type="line"/>
+      <point x="87" y="179" type="line"/>
+      <point x="87" y="147" type="line"/>
+      <point x="39" y="147" type="line"/>
+      <point x="39" y="99" type="line"/>
+      <point x="7" y="99" type="line"/>
+    </contour>
+    <contour>
+      <point x="179" y="7" type="line"/>
+      <point x="99" y="7" type="line"/>
+      <point x="99" y="39" type="line"/>
+      <point x="147" y="39" type="line"/>
+      <point x="147" y="87" type="line"/>
+      <point x="179" y="87" type="line"/>
+    </contour>
+  </outline>
+</glyph>

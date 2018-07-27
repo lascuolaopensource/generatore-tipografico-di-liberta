@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="ricerca1" format="1">
+  <advance width="500"/>
+  <outline>
+    <contour>
+      <point x="193" y="-7" type="line"/>
+      <point x="-7" y="-7" type="line"/>
+      <point x="-7" y="193" type="line"/>
+      <point x="193" y="193" type="line"/>
+    </contour>
+    <contour>
+      <point x="7" y="7" type="line"/>
+      <point x="179" y="7" type="line"/>
+      <point x="179" y="179" type="line"/>
+      <point x="7" y="179" type="line"/>
+    </contour>
+    <contour>
+      <point x="93" y="41" type="line"/>
+      <point x="145" y="93" type="line"/>
+      <point x="93" y="145" type="line"/>
+      <point x="41" y="93" type="line"/>
+    </contour>
+    <contour>
+      <point x="93" y="31" type="line"/>
+      <point x="31" y="93" type="line"/>
+      <point x="93" y="155" type="line"/>
+      <point x="155" y="93" type="line"/>
+    </contour>
+    <contour>
+      <point x="51" y="93" type="line"/>
+      <point x="93" y="51" type="line"/>
+      <point x="135" y="93" type="line"/>
+      <point x="93" y="135" type="line"/>
+    </contour>
+  </outline>
+</glyph>

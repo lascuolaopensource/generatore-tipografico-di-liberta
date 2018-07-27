@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="produzione2" format="1">
+  <advance width="500"/>
+  <outline>
+    <contour>
+      <point x="0" y="100" type="line"/>
+      <point x="0" y="0" type="line"/>
+      <point x="100" y="0" type="line"/>
+      <point x="100" y="100" type="line"/>
+    </contour>
+    <contour>
+      <point x="7" y="93" type="line"/>
+      <point x="50" y="50" type="line"/>
+      <point x="7" y="7" type="line"/>
+      <point x="7" y="93" type="line"/>
+    </contour>
+  </outline>
+</glyph>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="processi1" format="1">
+  <advance width="500"/>
+  <outline>
+    <contour>
+      <point x="87" y="193" type="line"/>
+      <point x="-7" y="193" type="line"/>
+      <point x="-7" y="-7" type="line"/>
+      <point x="193" y="-7" type="line"/>
+      <point x="193" y="87" type="line"/>
+      <point x="193" y="193" type="line"/>
+    </contour>
+    <contour>
+      <point x="179" y="7" type="line"/>
+      <point x="7" y="7" type="line"/>
+      <point x="7" y="179" type="line"/>
+      <point x="87" y="179" type="line"/>
+      <point x="87" y="87" type="line"/>
+      <point x="179" y="87" type="line"/>
+    </contour>
+  </outline>
+</glyph>
