@@ -262,14 +262,15 @@ def ellipse_half(gly, position, size, properties):
     elif "S" == orn:
         c.scale((1, -1))
     elif "W" == orn:
-        c.rotate(90)
-        c.scale(size[0]/size[1], size[1]/size[0])
-    elif "E" == orn:
         c.rotate(-90)
-        c.scale(size[0]/size[1], size[1]/size[0])
+        c.scale((size[0]/size[1], size[1]/size[0]))
+    elif "E" == orn:
+        c.rotate(90)
+        c.scale((size[0]/size[1], size[1]/size[0]))
 
     make_clockwise(c, clw)
-    c.move((x, y))
+    c.move(position)
+    c.round()
     gly.update()
 
 
@@ -278,7 +279,7 @@ def ellipse_half(gly, position, size, properties):
 
 
 ### FUNCTIONS - APPLY COMPONENT
-def copy_glyph(gly, position, size, properties):
+def apply_comp(gly, position, size, properties):
 
     # Unpacking
     x, y = position
@@ -287,19 +288,27 @@ def copy_glyph(gly, position, size, properties):
     # Getting font reference
     f      = properties["font"]
 
-    # Getting glyph-to-copy name
-    g_name = properties["glyph"]
+    # Getting component name
+    c_name = properties["glyph"]
 
-    # Getting glyph-to-copy reference
-    g      = f[g_name]
+    # Getting component reference
+    c      = f[c_name]
 
-    # Getting glyph size
-    w = (g.box[2] - g.box[0])*scl[0]
-    h = (g.box[3] - g.box[1])*scl[1]
+    # Getting component size
+    c_wdt = c.box[2] - c.box[0]
+    c_hgt = c.box[3] - c.box[1]
 
-    print w, h
+    # Getting scale factors
+    if c_wdt > w:
+        scl_x = w/c_wdt
+    else:
+        scl_x = c_wdt/w
+    if c_hgt > h:
+        scl_y = h/c_hgt
+    else:
+        scl_y = c_hgt/h
 
-    gly.appendComponent(g_name, offset=(x-w/2,y-h/2), scale=scl)
+    gly.appendComponent(c_name, offset=(x - w/2, y - h/2), scale=(scl_x, scl_y))
 
 
 
@@ -312,7 +321,7 @@ def selettore_valori(gly, position, size, properties):
 
     properties["glyph"] = gly_name
 
-    copy_glyph(gly, position, size, properties)
+    apply_comp(gly, position, size, properties)
 
 
 

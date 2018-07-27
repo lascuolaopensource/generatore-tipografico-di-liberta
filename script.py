@@ -99,11 +99,25 @@ quarter_properties = {
     "clockwise": True
 }
 
+elhalf_properties = {
+    "squaring": .6,
+    "orientation": "N",
+    "scale": (1, 1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+comp_properties = {
+    "font": CurrentFont(),
+    "glyph": "A"
+}
+
+
 
 sintassi = {
     ".": (do_nothing, {"null": "null"}),
-    "@": (ellipse_quarter, quarter_properties),
-    "#": (ellipse_quarter, quarter_properties),
+    "@": (apply_comp, comp_properties),
+    "#": (apply_comp, comp_properties),
     "%": (do_nothing, {"null": "null"}),
     "&": (do_nothing, {"null": "null"}),
     "$": (do_nothing, {"null": "null"}),
