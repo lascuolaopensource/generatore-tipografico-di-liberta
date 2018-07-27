@@ -258,8 +258,9 @@ def semiellipse(gly, position, size, properties):
 ### FUNCTIONS - APPLY COMPONENT
 def copy_glyph(gly, position, size, properties):
 
-    # Coordinates
+    # Unpacking
     x, y = position
+    w, h = size 
 
     # Getting font reference
     f      = properties["font"]
@@ -269,9 +270,6 @@ def copy_glyph(gly, position, size, properties):
 
     # Getting glyph-to-copy reference
     g      = f[g_name]
-
-    # Getting scale factor
-    scl    = properties["scale"]
 
     # Getting glyph size
     w = (g.box[2] - g.box[0])*scl[0]
