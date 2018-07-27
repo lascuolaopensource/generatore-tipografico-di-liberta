@@ -303,10 +303,9 @@ def selettore_valori(gly, position, size, properties):
 
 
 ### FUNCTIONS - COMPOSITION
-def rnd_draw (gly, position, size, args):
-    functions = args["functions"]
-    function = choice(functions)
-    function[0](gly=gly, position=position, size=size, args=function[1])
+def random_function (gly, position, size, properties):
+    function = choice(properties)
+    function[0](gly=gly, position=position, size=size, properties=function[1])
 
 
 
