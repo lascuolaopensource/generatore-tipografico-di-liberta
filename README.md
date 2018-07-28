@@ -1,4 +1,4 @@
-# Libreria Libertà
+# Libreria Generatore tipografico di Libertà
 
 Una libreria per la generazione di caratteri a partire da una grammatica di simboli.
 
@@ -15,6 +15,9 @@ Indice
 1. Interprete
 2. Utility per la descrizione di contorni
 3. Composizione di funzioni per disegnare
+5. Prospettive, suggerimenti e commenti dei partecipanti
+6. Il nome del progetto
+7. Partecipanti
 
 
 ## Interprete
@@ -241,11 +244,7 @@ position: Vect
 size: Vect
 properties: ListOf (Tuple (DrawingFunc, DrawingProps))
 
-La funzione **random_function** accetta come argomenti un RGlyph e ci disegna con una delle funzioni passate tra le proprietà (properties) scelta in modo casuale.
-
-
-
-
+La funzione **random_function** accetta come argomenti un RGlyph e ci disegna con una delle funzioni passate tra le proprietà (properties) scelta in modo casuale nella posizione data, con le dimensioni date. Ogni funzione è passata in una lista insieme alle proprietà che le devono essere applicate.
 
 
 ## Composizione di funzioni per disegnare
@@ -309,3 +308,15 @@ fn = split_ver (rectangle, split_hor (rectangle, rectangle))
 |    |    |
 |    |    |
 +----+----+
+
+
+## Prospettive, suggerimenti e commenti dei partecipanti
+
+### Daniele
+Il codice è scritto in parte in uno stile funzionale (nel senso della *functional programming*) in parte no. Questo rispecchia le diverse inclinazioni di chi lo ha scritto ma soprattutto il fatto che la libreria sottostante, Robofab, opera quasi sempre con dati mutabili e attraverso mutazioni. 
+Credo che si potrebbe, come esercizio, tentare comunque di mantenere uno stile funzionale, pur scontando il fatto che le procedure determineranno mutazioni e "effetti collaterali", impomnendo che tutte le funzioni ritornino qualcosa. Una riscrittura più radicale in termini di programmazione funzionale potrebbe costruire un livello che isoli le mutazioni di robofab attraverso copie: in questo modo si eliminerebbero tutte le mutaziuoni e tutto il codice potrebbe essere libero da effetti collaterali.
+Senza arrivare a questo, una riscrittura in termini funzionali potrebbe cercare di cambiare determinati meccanismi di passaggio delle proprietà per le funzioni.
+
+Da un punto di vista dell'usabilità sarebbe forse il caso di aggiungere dei controlli che "assicurino" che il corretto tipo di dati è passato alle funzioni, in questo modo sarebbe più facile tracciare e individuare gli errori.
+
+Se interpretiamo questo lavoro come la realizzazione di un linguaggio incompleto per la definizione arbitraria di simboli di descrizione e progettazione di caratteri quasi parametrici, allora sarebbe bello ipotizzare un modo per definire i significati dei simboli senza usare python in modo diretto.
