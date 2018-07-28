@@ -1,0 +1,34 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+
+@alt_base = [B K M Q R W X Y a r s w x y zero three];
+
+@alt1_base = [Q X Y x];
+
+@alt = [B.alt K.alt M.alt Q.alt R.alt W.alt X.alt Y.alt a.alt r.alt s.alt w.alt x.alt y.alt zero.alt three.alt];
+
+@alt1 = [Q.alt1 X.alt1 Y.alt1 x.alt1];
+
+
+feature aalt {
+    feature ss17;
+    feature ss18;
+    feature ss19;
+} aalt;
+
+
+
+feature ss17 {
+    sub [a s] by [a.patt s.patt];
+} ss17;
+
+
+feature ss18 {
+    sub @alt_base by @alt;
+} ss18;
+
+
+feature ss19 {
+    sub @alt1_base by @alt1;
+} ss19;

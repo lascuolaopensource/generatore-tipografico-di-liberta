@@ -2,12 +2,79 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>@A_UC</key>
+	<key>@A_LC_LEFT</key>
+	<array>
+		<string>a</string>
+		<string>agrave</string>
+		<string>aacute</string>
+		<string>acircumflex</string>
+	</array>
+	<key>@A_UC_LEFT</key>
 	<array>
 		<string>A</string>
 		<string>Agrave</string>
 		<string>Aacute</string>
 		<string>Acircumflex</string>
+	</array>
+	<key>@A_UC_RIGHT</key>
+	<array>
+		<string>A</string>
+		<string>Agrave</string>
+		<string>Aacute</string>
+		<string>Acircumflex</string>
+	</array>
+	<key>@L_UC_LEFT</key>
+	<array>
+		<string>L</string>
+	</array>
+	<key>@N_LC_LEFT</key>
+	<array>
+		<string>n</string>
+	</array>
+	<key>@T_UC_LEFT</key>
+	<array>
+		<string>T</string>
+	</array>
+	<key>@UV_LC_RIGHT</key>
+	<array>
+		<string>u</string>
+		<string>ugrave</string>
+		<string>uacute</string>
+		<string>ucircumflex</string>
+		<string>v</string>
+		<string>y</string>
+		<string>yacute</string>
+		<string>ycircumflex</string>
+		<string>ygrave</string>
+		<string>w.alt</string>
+		<string>t</string>
+		<string>b</string>
+		<string>l</string>
+	</array>
+	<key>@U_UC_RIGHT</key>
+	<array>
+		<string>U</string>
+		<string>Ugrave</string>
+		<string>Uacute</string>
+		<string>Ucircumflex</string>
+	</array>
+	<key>@V_UC_LEFT</key>
+	<array>
+		<string>V</string>
+		<string>Y</string>
+		<string>Yacute</string>
+		<string>Ycircumflex</string>
+		<string>Ygrave</string>
+		<string>Y.alt</string>
+	</array>
+	<key>@V_UC_RIGHT</key>
+	<array>
+		<string>V</string>
+		<string>Y</string>
+		<string>Yacute</string>
+		<string>Ycircumflex</string>
+		<string>Ygrave</string>
+		<string>Y.alt</string>
 	</array>
 </dict>
 </plist>

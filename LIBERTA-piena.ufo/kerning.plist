@@ -2,6 +2,42 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>@A_LC_LEFT</key>
+	<dict>
+		<key>@UV_LC_RIGHT</key>
+		<integer>-111</integer>
+	</dict>
+	<key>@A_UC_LEFT</key>
+	<dict>
+		<key>@V_UC_RIGHT</key>
+		<integer>-111</integer>
+		<key>T</key>
+		<integer>-111</integer>
+	</dict>
+	<key>@L_UC_LEFT</key>
+	<dict>
+		<key>@A_UC_RIGHT</key>
+		<integer>-111</integer>
+		<key>@UV_LC_RIGHT</key>
+		<integer>-111</integer>
+		<key>T</key>
+		<integer>-111</integer>
+	</dict>
+	<key>@N_LC_LEFT</key>
+	<dict>
+		<key>@UV_LC_RIGHT</key>
+		<integer>-111</integer>
+	</dict>
+	<key>@T_UC_LEFT</key>
+	<dict>
+		<key>@A_UC_RIGHT</key>
+		<integer>-111</integer>
+	</dict>
+	<key>@V_UC_LEFT</key>
+	<dict>
+		<key>@A_UC_RIGHT</key>
+		<integer>-111</integer>
+	</dict>
 	<key>A</key>
 	<dict>
 		<key>T</key>

@@ -6,10 +6,14 @@
 	<integer>778</integer>
 	<key>capHeight</key>
 	<integer>778</integer>
+	<key>copyright</key>
+	<string>La Scuola Open Source</string>
 	<key>descender</key>
 	<integer>-222</integer>
 	<key>familyName</key>
 	<string>LIBERTA</string>
+	<key>italicAngle</key>
+	<integer>0</integer>
 	<key>openTypeHeadCreated</key>
 	<string>2018/07/28 16:12:22</string>
 	<key>openTypeNamePreferredFamilyName</key>
@@ -23,9 +27,21 @@
 	<key>postscriptBlueValues</key>
 	<array>
 	</array>
+	<key>postscriptFamilyBlues</key>
+	<array>
+	</array>
+	<key>postscriptFamilyOtherBlues</key>
+	<array>
+	</array>
 	<key>postscriptFontName</key>
 	<string>LIBERTA-piena</string>
 	<key>postscriptOtherBlues</key>
+	<array>
+	</array>
+	<key>postscriptStemSnapH</key>
+	<array>
+	</array>
+	<key>postscriptStemSnapV</key>
 	<array>
 	</array>
 	<key>styleMapFamilyName</key>
