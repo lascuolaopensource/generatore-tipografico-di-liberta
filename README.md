@@ -61,7 +61,116 @@ La funzione accetta come argomento l'indirizzo del file di testo che contiene la
 
 Il modulo **draw_bits** è usato per trasformare la descrizione astratta dei TextGlyph in glifi "grafici".
 
+
 ### Tipi di dati
+
+Command: String
+Una stringa di uno e un solo carattere da creare 
+
+Vect: Tuple (Float, Float)
+Un vettore bidimensionale rappresentato da una tupla composto da due numeri
+
+DrawingProps: Dictionary (String, Any)
+Le proprietà da passare alla funzione disegno; le chiavi sono stringhe e i valori possono essere qualsiasi tipo 
+
+DrawingFunc: RGlyph Vect Vect DrawingProps -> None
+Una procedura che disegna su un dato glifo a una data posizione secondo certe dimensioni e usando le proprietà passate come argomento
+
+Syntax: Dictionary (Command, Tuple (DrawingFunc, DrawingProps))
+
+
+### Funzioni
+
+draw_bit_fnt (fnt, fnt_dict, suffix, dsc_hgt, box_size, box_layout, syntax) -> RFont
+
+fnt: RFont
+fnt_dict: FontDict
+suffix: String
+dsc_hgt: Integer
+box_size: Vect
+box_layout: Tuple (Integer, Integer)
+syntax: Syntax
+
+La funzione accetta come argomenti una RFont, un FontDict, l'eventuale suffisso da aggiungere ai glifi, la dimensione in celle delle discendenti, la dimensione della cella, l'eventuale suddivisione della cella in sottocelle e la sintassi. Produce una RFont.
+
+
+draw_bit_gly(gly, gly_desc, dsc_hgt, box_size, box_layout, syntax) -> RGlyph
+
+gly: RGlyph
+gly_desc: TextGlyph
+dsc_height: Integer
+box_size: Vect
+box_layout: Tuple (Integer, Integer)
+syntax: Syntax
+
+La funzione accetta come argomenti un RGlyph, un TextGlyph (vedi sopra), la dimensione in celle delle discendenti, la dimensione della cella, l'eventuale suddivisione della cella in sottocelle e la sintassi. Produce un RGlyph.
+
+
+
+def draw_bit_lin(gly, char_line, box_position, box_size, box_layout, syntax) -> None
+
+gly: RGlyph
+char_line: String
+box_position: Vect
+box_size: Vect
+box_layout: Tuple (Integer, Integer)
+syntax: Syntax
+
+La funzione accetta come argomenti un RGlyph, una stringa di comandi che rappresenta una "linea" di elementi, la posizione in cui cominciare a disegnare, la dimensione della cella, la suddivisione della cella, la sintassi. Non produce nulla.
+
+
+draw_bit_chr(gly, char, box_position, box_size, box_layout, syntax) -> None
+
+gly: RGlyph
+char: Command
+box_position: Vect
+box_size: Vect
+box_layout: Tuple (Integer, Integer)
+syntax: Syntax
+
+La funzione accetta come argomenti un RGlyph, una Command, la posizione in cui iniziare a disegnare, la dimensione della cella, la sufddivisione eventuale della cela e la sintassi. Non produce nulla.
+
+
+## Utility per la descrizione di contorni
+
+import shape_functions
+
+Il modulo **shape_functions** fornisce delle funzione di utilità per la scrittura di contorni e di primitive.
+
+
+### Tipi di dati
+
+Point: Vect
+Un punto è un Vect (tupla costituita da due numeri)
+
+CurveElement: OneOf (Point, Tuple (Point, Point, Float))
+Un elemento di curva può essere un punto o una tupla costituita da tre elementi: due punti e un valore numerico che indica la squadratura. Il primo e l'ultimo punto devono coincidere.
+
+Curve: ListOf (Point, CurveElement, ...)
+Una curva è rappresentata da una lista che inzia obbligatoriamente con un punto e continua con una sequenza di CurveElement.
+Le regole sono le seguenti:
+1. [..., pt1, pt2, ...] rappresenta una linea da pt1 a pt2
+2. [..., pt1, (pt2, pt3, sq), ...] rappresenta una curva che inizia in pt1 e finisce in pt3. I segmenti pt1-pt2 e pt2-pt3 rappresentano, rispettivamente, le tangenti alla curva in pt1 e pt3, sq è un paramentro che controlla la tensione dei punti di controllo della curva di Bézier rappresentata così, ad esempio, se sq=1 i due punti di controllo coincidono con pt2, se sq=0 i due punti di controllo coincidono rispettivamente con pt1 e pt3 e la curva degenera in una linea da pt1 a pt3.
+3. [..., (pt1, pt2, sq), (pt3, pt4, sq), ... ] rappresenta una curva che parte da pt2 e finisce a pt4 secondo le stesse regole descritte sopra.
+
+
+### Funzioni
+
+interpolate_points(pA, pB, f) -> Point
+
+pA: Point
+pB: Point
+f: Float
+
+Interpola tra i punti pA e pB usando come fattore di interpolazione il numero f. Produce un punto.
+
+
+drawer(gly, pts) -> RGlyph
+
+gly: RGlyph
+pts: Curve
+
+**drawer** accetta come argomenti un RGlyph su cui disegnare e una Curve. La funzione crea un contorno corrispondente alla curva nel glifo. Produce il Glifo.
 
 
 

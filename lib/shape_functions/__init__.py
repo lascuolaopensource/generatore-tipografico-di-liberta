@@ -22,7 +22,7 @@ def interpolate_points(pA, pB, f):
 # drawer
 # A general function that links any given points
 
-# RGlyph, list, boolean -> RGlyph
+# RGlyph, list -> RGlyph
 def drawer(gly, pts):
 
     # Getting glyph pen
