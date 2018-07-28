@@ -70,14 +70,21 @@ p_el_half = {
     "clockwise": True
 }
 
+p_random = [
+    (rectangle      , p_rectangle),
+    (ellipse        , p_ellipse),
+    (ellipse_quarter, p_el_quarter),
+    (ellipse_half   , p_el_half)
+]
+
 
 
 ### SINTASSI
 
 sintassi = {
     ".": (do_nothing, {"null": "null"}),
-    "@": (ellipse_half, p_el_half),
-    "#": (ellipse_half, p_el_half),
+    "@": (random_function, p_random),
+    "#": (random_function, p_random),
     "%": (do_nothing, {"null": "null"}),
     "&": (do_nothing, {"null": "null"}),
     "$": (do_nothing, {"null": "null"}),
