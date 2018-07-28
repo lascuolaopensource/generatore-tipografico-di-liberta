@@ -173,6 +173,80 @@ pts: Curve
 **drawer** accetta come argomenti un RGlyph su cui disegnare e una Curve. La funzione crea un contorno corrispondente alla curva nel glifo. Produce il Glifo.
 
 
+make_clockwise(c, cw) -> RContour
+c: RContour
+cw: Boolean
+
+La funzione accetta un contorno e un Boolean (True se il contorno deve essere in senso orario, False altrimenti) e cambia il senso del contorno secondo il valore di cw. Produce il contorno.
+
+
+do_nothing(gly, position, size, properties) -> None
+
+gly: RGlyph
+position: Vect
+size: Vect
+properties: DrawingProps
+
+**do_nothing** è una funzione di tipo **DrawingFunc** utile per attribuire a un comando della sintassi il significato di un elemento vuoto.
+
+
+rectangle(gly, position, size, properties) -> None
+
+gly: RGlyph
+position: Vect
+size: Vect
+properties: DrawingProps
+
+**rectangle** è una funzione di tipo **DrawingFunc**; crea un rettangolo nel glifo alla posizione data (centro), con le dimensioni date e applicando le proprietà passate alla funzione.
+Le proprietà da passare sono "scale" (Vect), "rotation" (Float) e "clockwise" (Boolean).
+
+
+ellipse(gly, position, size, properties) -> None
+
+gly: RGlyph
+position: Vect
+size: Vect
+properties: DrawingProps
+
+**ellipse** è una funzione di tipo **DrawingFunc**; crea un'ellisse nel glifo alla posizione data (centro), con le dimensioni date e applicando le proprietà passate alla funzione.
+Le proprietà da passare sono "scale" (Vect), "rotation" (Float), "squaring" (Float) e "clockwise" (Boolean).
+
+
+ellipse_quarter(gly, position, size, properties) -> None
+
+gly: RGlyph
+position: Vect
+size: Vect
+properties: DrawingProps
+
+**ellipse_quarter** è una funzione di tipo **DrawingFunc**; crea un quarto di ellisse nel glifo alla posizione data (centro), con le dimensioni date e applicando le proprietà passate alla funzione.
+Le proprietà da passare sono "scale" (Vect), "rotation" (Float), "squaring" (Float), "orientation" (OneOf "NW" "NE" "SE" "SW") e "clockwise" (Boolean).
+
+
+ellipse_half(gly, position, size, properties) -> None
+
+gly: RGlyph
+position: Vect
+size: Vect
+properties: DrawingProps
+
+**ellipse_half** è una funzione di tipo **DrawingFunc**; crea un semiellisse nel glifo alla posizione data (centro), con le dimensioni date e applicando le proprietà passate alla funzione.
+Le proprietà da passare sono "scale" (Vect), "rotation" (Float), "squaring" (Float), "orientation" (OneOf "N" "E" "S" "W") e "clockwise" (Boolean).
+
+
+random_function (gly, position, size, properties) -> None
+
+gly: RGlyph
+position: Vect
+size: Vect
+properties: ListOf (Tuple (DrawingFunc, DrawingProps))
+
+La funzione **random_function** accetta come argomenti un RGlyph e ci disegna con una delle funzioni passate tra le proprietà (properties) scelta in modo casuale.
+
+
+
+
+
 
 ## Composizione di funzioni per disegnare
 
