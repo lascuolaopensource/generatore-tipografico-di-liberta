@@ -21,7 +21,7 @@ def get_glyph_from_txt(txt_file):
     # Splitting unique string
     txt_split = txt_read.split("\n")
 
-    # Key: saving key name - Stripping "/r" because of windows
+    # Key: saving glyph name [and stripping "/r" because of windows]
     key = txt_split[0].strip("\r")
 
     # Value: saving letter structure (as list of lines)
@@ -32,13 +32,13 @@ def get_glyph_from_txt(txt_file):
 
 
 # get_font_from_folder
-# This function reads all the txts in a get_font_from_folder
-# And returs a dictionary where each key is a glyph
+# This function reads all the txts in a folder
+# and returs a dictionary where each entry is a glyph name-structure pair
 
 # String -> Dictionary
 def get_font_from_folder(folder_path):
 
-    # Creating empty dictionary where all the keys will be appended
+    # Creating an empty dictionary where all the keys will be appended
     font_dict = {}
 
     # Iterating over folder
@@ -49,8 +49,3 @@ def get_font_from_folder(folder_path):
             font_dict.update(get_glyph_from_txt(folder_path + "/" + file))
 
     return font_dict
-
-
-
-### TEST
-# print get_font_from_folder("/Users/giovanniabbatepaolo/Desktop/SOS/1-script/vC-addensamento/0-letters-09")

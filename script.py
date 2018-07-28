@@ -22,7 +22,7 @@ from shape_functions import *
 txt_path = "/Users/giovanniabbatepaolo/Desktop/SOS/generatore tipografico di libertà/assets/letters"
 
 # Set glyphs'baseline row (counting from bottom of txt)
-baseline = 2
+gly_baseline = 2
 
 # Set width of "pixelone"
 h_step = 100
@@ -32,7 +32,7 @@ col = 1
 row = 1
 
 # Set name of set (".alt1", ".alt2", ...)
-suffix = ""
+set_suffix = ""
 
 
 
@@ -58,7 +58,7 @@ line_num = len(first_val)
 v_step = 1000/line_num
 
 # Calculating descender line
-dsc_hgt = -v_step * baseline
+dsc_hgt = -v_step * gly_baseline
 
 
 
@@ -80,20 +80,44 @@ dsc_hgt = -v_step * baseline
 
 rectangle_properties = {
     "scale": (1,1),
-    "rotation": 0,
+    "rotation": 30,
     "clockwise": True
     }
 
 ellipse_properties = {
     "squaring": .6,
+    "scale": (1,1),
+    "rotation": 30,
     "clockwise": True
     }
+
+quarter_properties = {
+    "squaring": .6,
+    "orientation": "NW",
+    "scale": (1,1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+elhalf_properties = {
+    "squaring": .6,
+    "orientation": "N",
+    "scale": (1, 1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+comp_properties = {
+    "font": CurrentFont(),
+    "glyph": "A"
+}
+
 
 
 sintassi = {
     ".": (do_nothing, {"null": "null"}),
-    "@": (random_function, [(rectangle, rectangle_properties), (ellipse, ellipse_properties)]),
-    "#": (random_function, [(rectangle, rectangle_properties), (ellipse, ellipse_properties)]),
+    "@": (apply_comp, comp_properties),
+    "#": (apply_comp, comp_properties),
     "%": (do_nothing, {"null": "null"}),
     "&": (do_nothing, {"null": "null"}),
     "$": (do_nothing, {"null": "null"}),
@@ -101,51 +125,11 @@ sintassi = {
 }
 
 
-# sintassi = {
-#     "#": (do_nothing, {"null": "null"}),
-#     ".": (rnd_draw, {"h_step": sh,
-#                      "v_step": sv}),
-#     "@": (do_nothing, {"null": "null"}),
-#     "%": (rnd_draw, {"h_step": sh,
-#                      "v_step": sv}),
-#     "&": (rnd_draw, {"h_step": sh,
-#                      "v_step": sv}),
-#     "$": (rnd_draw, {"h_step": sh,
-#                      "v_step": sv}),
-#     "£": (rnd_draw, {"h_step": sh,
-#                      "v_step": sv})
-# }
-
-
-
-# sintassi = {
-
-#     ".": (do_nothing, {"null"  : "null"}),
-
-#     "#": (selettore_valori, {"glyph"  : "null",
-#                              "offset" : (0,0),
-#                              "scale"  : (box_scl_hor, box_scl_ver),
-#                              "font"   : fnt,
-#                              "valori" : ["esplosivo", "utile", "cultura"],
-#                              "persone": 2}),
-
-#     "@": (selettore_valori, {"glyph"  : "null",
-#                              "offset" : (0,0),
-#                              "scale"  : (box_scl_hor, box_scl_ver),
-#                              "font"   : fnt,
-#                              "valori" : ["esplosivo", "utile", "cultura"],
-#                              "persone": 2})
-# }
-
-
-
 # Iterating over the dictionary
 draw_bit_fnt(fnt=fnt,
              fnt_dict=fnt_dict,
-             suffix=suffix,
+             suffix=set_suffix,
              dsc_hgt=dsc_hgt,
-             h_step=h_step,
-             v_step=v_step,
-             row=row,
-             col=col,
+             box_size=(h_step, v_step),
+             box_layout=(row, col),
              syntax=sintassi)
