@@ -39,6 +39,54 @@ set_suffix = ""
 
 
 
+### SHAPE PROPERTIES
+
+p_rectangle = {
+    "scale": (1,1),
+    "rotation": 30,
+    "clockwise": True
+    }
+
+p_ellipse = {
+    "squaring": .6,
+    "scale": (1,1),
+    "rotation": 30,
+    "clockwise": True
+    }
+
+p_el_quarter = {
+    "squaring": .6,
+    "orientation": "NW",
+    "scale": (1,1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+p_el_half = {
+    "squaring": .6,
+    "orientation": "N",
+    "scale": (1, 1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+
+
+### SINTASSI
+
+sintassi = {
+    ".": (do_nothing, {"null": "null"}),
+    "@": (ellipse_half, p_el_half),
+    "#": (ellipse_half, p_el_half),
+    "%": (do_nothing, {"null": "null"}),
+    "&": (do_nothing, {"null": "null"}),
+    "$": (do_nothing, {"null": "null"}),
+    "£": (do_nothing, {"null": "null"})
+}
+
+
+
+
 
 
 ### INSTRUCTIONS
@@ -62,74 +110,15 @@ dsc_hgt = -v_step * gly_baseline
 
 
 
-# h_step = v_step
-# sh = h_step/col
-# sv = v_step/row
 
 
 
+### DRAWING FONT
 
-# ### CALCOLO FATTORI DI SCALA E TRASLAZIONE
-# box = 186
-# box_scl_hor = sh/box
-# box_scl_ver = sv/box
-
-
-
-### SYNTASSI
-
-rectangle_properties = {
-    "scale": (1,1),
-    "rotation": 30,
-    "clockwise": True
-    }
-
-ellipse_properties = {
-    "squaring": .6,
-    "scale": (1,1),
-    "rotation": 30,
-    "clockwise": True
-    }
-
-quarter_properties = {
-    "squaring": .6,
-    "orientation": "NW",
-    "scale": (1,1),
-    "rotation": 0,
-    "clockwise": True
-}
-
-elhalf_properties = {
-    "squaring": .6,
-    "orientation": "N",
-    "scale": (1, 1),
-    "rotation": 0,
-    "clockwise": True
-}
-
-comp_properties = {
-    "font": CurrentFont(),
-    "glyph": "A"
-}
-
-
-
-sintassi = {
-    ".": (do_nothing, {"null": "null"}),
-    "@": (apply_comp, comp_properties),
-    "#": (apply_comp, comp_properties),
-    "%": (do_nothing, {"null": "null"}),
-    "&": (do_nothing, {"null": "null"}),
-    "$": (do_nothing, {"null": "null"}),
-    "£": (do_nothing, {"null": "null"})
-}
-
-
-# Iterating over the dictionary
-draw_bit_fnt(fnt=fnt,
-             fnt_dict=fnt_dict,
-             suffix=set_suffix,
-             dsc_hgt=dsc_hgt,
-             box_size=(h_step, v_step),
-             box_layout=(row, col),
-             syntax=sintassi)
+draw_bit_fnt(fnt = fnt,
+             fnt_dict = fnt_dict,
+             suffix = set_suffix,
+             dsc_hgt = dsc_hgt,
+             box_size = (h_step, v_step),
+             box_layout = (row, col),
+             syntax = sintassi)
