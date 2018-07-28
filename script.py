@@ -19,17 +19,18 @@ from shape_functions import *
 ### VARIABLES
 
 # Absolute path of folder containing glyphs'txts
-txt_path = "/Users/giovanniabbatepaolo/Desktop/SOS/generatore tipografico di libertà/assets/letters"
+txt_path = "/Users/giovanniabbatepaolo/Desktop/SOS/generatore-tipografico-di-liberta/assets/letters"
 
 # Set glyphs'baseline row (counting from bottom of txt)
 gly_baseline = 2
 
-# Set width of "pixelone"
-h_step = 100
+# Set the ratio between width of "pixelone" and its height:
+# width_ratio = 2 means the module width will be twice its height
+width_ratio = 1
 
 # Set number of "pixelone" sub-units
-col = 1 
-row = 1
+box_col = 1 
+box_row = 1
 
 # Set name of set (".alt1", ".alt2", ...)
 set_suffix = ""
@@ -42,8 +43,8 @@ set_suffix = ""
 ### SHAPE PROPERTIES
 
 p_rectangle = {
-    "scale": (1,1),
-    "rotation": 30,
+    "scale": (1.05,1.05),
+    "rotation": 0,
     "clockwise": True
     }
 
@@ -83,8 +84,8 @@ p_random = [
 
 sintassi = {
     ".": (do_nothing, {"null": "null"}),
-    "@": (random_function, p_random),
-    "#": (random_function, p_random),
+    "@": (rectangle, p_rectangle),
+    "#": (rectangle, p_rectangle),
     "%": (do_nothing, {"null": "null"}),
     "&": (do_nothing, {"null": "null"}),
     "$": (do_nothing, {"null": "null"}),
@@ -109,11 +110,14 @@ first_key = next(iter(fnt_dict))
 first_val = fnt_dict[first_key]
 line_num = len(first_val)
 
-# Calculating vertical step (altezza del "pixelone")
-v_step = 1000/line_num
+# Calculating box height
+box_hgt = 1000/line_num
+
+# Calculating box width
+box_wdt = box_hgt * width_ratio
 
 # Calculating descender line
-dsc_hgt = -v_step * gly_baseline
+dsc_hgt = -box_hgt * gly_baseline
 
 
 
@@ -126,6 +130,6 @@ draw_bit_fnt(fnt = fnt,
              fnt_dict = fnt_dict,
              suffix = set_suffix,
              dsc_hgt = dsc_hgt,
-             box_size = (h_step, v_step),
-             box_layout = (row, col),
+             box_size = (box_wdt, box_hgt),
+             box_layout = (box_row, box_col),
              syntax = sintassi)

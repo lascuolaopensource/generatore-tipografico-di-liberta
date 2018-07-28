@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="quotedbl" format="1">
+  <advance width="556"/>
+  <unicode hex="0022"/>
+  <outline>
+    <contour>
+      <point x="108" y="442" type="line"/>
+      <point x="108" y="558" type="line"/>
+      <point x="225" y="558" type="line"/>
+      <point x="225" y="442" type="line"/>
+    </contour>
+    <contour>
+      <point x="331" y="442" type="line"/>
+      <point x="331" y="558" type="line"/>
+      <point x="447" y="558" type="line"/>
+      <point x="447" y="442" type="line"/>
+    </contour>
+    <contour>
+      <point x="108" y="553" type="line"/>
+      <point x="108" y="669" type="line"/>
+      <point x="225" y="669" type="line"/>
+      <point x="225" y="553" type="line"/>
+    </contour>
+    <contour>
+      <point x="331" y="553" type="line"/>
+      <point x="331" y="669" type="line"/>
+      <point x="447" y="669" type="line"/>
+      <point x="447" y="553" type="line"/>
+    </contour>
+    <contour>
+      <point x="108" y="664" type="line"/>
+      <point x="108" y="781" type="line"/>
+      <point x="225" y="781" type="line"/>
+      <point x="225" y="664" type="line"/>
+    </contour>
+    <contour>
+      <point x="331" y="664" type="line"/>
+      <point x="331" y="781" type="line"/>
+      <point x="447" y="781" type="line"/>
+      <point x="447" y="664" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-07-28 14:35:53 +0000</string>
+    </dict>
+  </lib>
+</glyph>
