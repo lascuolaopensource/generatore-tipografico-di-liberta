@@ -12,12 +12,56 @@ La libreria può essere quindi usata come un interprete minimo di “linguaggi�
 Indice
 
 1. Rappresentazione della font come testo
-1. Interprete
-2. Utility per la descrizione di contorni
-3. Composizione di funzioni per disegnare
+2. Interprete
+3. Utility per la descrizione di contorni
+4. Composizione di funzioni per disegnare
 5. Prospettive, suggerimenti e commenti dei partecipanti
 6. Il nome del progetto
 7. Partecipanti
+
+
+## Rappresentazione della font come testo
+
+Ogni glifo del carattere è rappresentato in un file di testo. la prima linea contiene il nome del glifo, la seconda linea è vuota, le linee successive rappresentano il glifo con una serie di simboli.
+
+Esempio:
+
+```
+A
+
+.#####.
+.#...#.
+.#...#.
+.#####.
+.#...#.
+.#...#.
+.#...#.
+.......
+.......
+
+```
+I file dei glifi sono contenuti in una cartella e organizzati in sottocartelle come questo esempio:
+  
+```
+font_liberta
+      |
+      |
+      +--- lettere
+      |       |
+      |       |
+      |       +--- minuscole
+      |       |        |
+      |       |        +--- a.txt
+      |       |        +--- b.txt
+      |       |        +--- ...
+      |       |
+      |       +--- maiuscole
+
+```
+
+I nomi dei file dei glifi non hanno uno scopo al fine della generazione della font ma solo come mezzo per tenere organizzati i glifi.
+
+
 
 
 ## Interprete
@@ -266,6 +310,8 @@ Prende un numero arbitrario di funzioni di disegno e ritorna una funzione che di
 
 Esempio
 
+```
+
 fn = split_hor (rectangle, rectangle)
 
 +----+----+
@@ -274,6 +320,9 @@ fn = split_hor (rectangle, rectangle)
 |    |    |
 |    |    |
 +----+----+
+
+```
+
 
 ### split_ver
 
@@ -285,6 +334,8 @@ Prende un numero arbitrario di funzioni di disegno e ritorna una funzione che di
 
 Esempio
 
+```
+
 fn = split_ver (rectangle, rectangle)
 
 +---------+
@@ -295,9 +346,13 @@ fn = split_ver (rectangle, rectangle)
 |         |
 +---------+
 
+```
+
 
 Esempio
 Composizione annidata
+
+```
 
 fn = split_ver (rectangle, split_hor (rectangle, rectangle))
 
@@ -308,6 +363,8 @@ fn = split_ver (rectangle, split_hor (rectangle, rectangle))
 |    |    |
 |    |    |
 +----+----+
+
+```
 
 
 ## Prospettive, suggerimenti e commenti dei partecipanti
@@ -320,3 +377,8 @@ Senza arrivare a questo, una riscrittura in termini funzionali potrebbe cercare 
 Da un punto di vista dell'usabilità sarebbe forse il caso di aggiungere dei controlli che "assicurino" che il corretto tipo di dati è passato alle funzioni, in questo modo sarebbe più facile tracciare e individuare gli errori.
 
 Se interpretiamo questo lavoro come la realizzazione di un linguaggio incompleto per la definizione arbitraria di simboli di descrizione e progettazione di caratteri quasi parametrici, allora sarebbe bello ipotizzare un modo per definire i significati dei simboli senza usare python in modo diretto.
+
+
+## Il nome del progetto
+
+Il nome Libertà è un gioco tra il significato comune del termine e il nome del quartiere di Bari in cui si trova l'officina degli esordi.
