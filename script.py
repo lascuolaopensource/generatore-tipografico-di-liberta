@@ -19,7 +19,7 @@ from shape_functions import *
 ### VARIABLES
 
 # Absolute path of folder containing glyphs'txts
-txt_path = "/Users/giovanniabbatepaolo/Desktop/SOS/generatore-tipografico-di-liberta/assets/letters"
+txt_path = os.getcwd() + "/assets/letters"
 
 # Set glyphs'baseline row (counting from bottom of txt)
 gly_baseline = 2
@@ -29,8 +29,8 @@ gly_baseline = 2
 width_ratio = 1
 
 # Set number of "pixelone" sub-units
-box_col = 1 
-box_row = 1
+box_col = 2 
+box_row = 2
 
 # Set name of set (".alt1", ".alt2", ...)
 set_suffix = ""
@@ -43,20 +43,35 @@ set_suffix = ""
 ### SHAPE PROPERTIES
 
 p_rectangle = {
-    "scale": (1.05,1.05),
+    "scale": (1,1),
     "rotation": 0,
     "clockwise": True
     }
 
 p_ellipse = {
-    "squaring": .6,
+    "squaring": .56,
     "scale": (1,1),
-    "rotation": 30,
+    "rotation": 0,
+    "clockwise": True
+    }
+
+p_ellipse_t = {
+    "squaring": 0,
+    "scale": (1,1),
+    "rotation": 0,
     "clockwise": True
     }
 
 p_el_quarter = {
-    "squaring": .6,
+    "squaring": .56,
+    "orientation": "NW",
+    "scale": (1,1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+p_el_quarter_t = {
+    "squaring": 0,
     "orientation": "NW",
     "scale": (1,1),
     "rotation": 0,
@@ -64,7 +79,15 @@ p_el_quarter = {
 }
 
 p_el_half = {
-    "squaring": .6,
+    "squaring": .56,
+    "orientation": "N",
+    "scale": (1, 1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+p_el_half_t = {
+    "squaring": 0,
     "orientation": "N",
     "scale": (1, 1),
     "rotation": 0,
@@ -74,8 +97,11 @@ p_el_half = {
 p_random = [
     (rectangle      , p_rectangle),
     (ellipse        , p_ellipse),
+    #(ellipse        , p_ellipse_t),
     (ellipse_quarter, p_el_quarter),
-    (ellipse_half   , p_el_half)
+    #(ellipse_quarter, p_el_quarter_t),
+    (ellipse_half   , p_el_half),
+    (ellipse_half   , p_el_half_t)
 ]
 
 
@@ -84,8 +110,8 @@ p_random = [
 
 sintassi = {
     ".": (do_nothing, {"null": "null"}),
-    "@": (rectangle, p_rectangle),
-    "#": (rectangle, p_rectangle),
+    "@": (random_function, p_random),
+    "#": (random_function, p_random),
     "%": (do_nothing, {"null": "null"}),
     "&": (do_nothing, {"null": "null"}),
     "$": (do_nothing, {"null": "null"}),
