@@ -251,6 +251,7 @@ def ellipse_half(gly, position, size, properties):
     p09 = p00
     p10 = p05
 
+    # Drawing contour
     drawer(gly, [p00, (p01, p02, sqr), (p03, p04, sqr), p05, (p06, p07, sqr), p08, (p09, p10, sqr)])
 
     # Contour operations - Selecting contour
@@ -278,77 +279,24 @@ def ellipse_half(gly, position, size, properties):
 
 
 
-### FUNCTIONS - APPLY COMPONENT
-def apply_comp(gly, position, size, properties):
-
-    # Unpacking
-    x, y = position
-    w, h = size 
-
-    # Getting font reference
-    f      = properties["font"]
-
-    # Getting component name
-    c_name = properties["glyph"]
-
-    # Getting component reference
-    c      = f[c_name]
-
-    # Getting component size
-    c_wdt = c.box[2] - c.box[0]
-    c_hgt = c.box[3] - c.box[1]
-
-    # Getting scale factors
-    if c_wdt > w:
-        scl_x = w/c_wdt
-    else:
-        scl_x = c_wdt/w
-    if c_hgt > h:
-        scl_y = h/c_hgt
-    else:
-        scl_y = c_hgt/h
-
-    gly.appendComponent(c_name, offset=(x - w/2, y - h/2), scale=(scl_x, scl_y))
-
-
-
-def selettore_valori(gly, position, size, properties):
-
-    val = properties["valori"]
-    per = properties["persone"]
-
-    gly_name = choice(val) + str(per)
-
-    properties["glyph"] = gly_name
-
-    apply_comp(gly, position, size, properties)
-
-
-
-
-
-
 ### FUNCTIONS - COMPOSITION
+
+# random_function
+# This function accepts a list of tuples with this structure:
+# (function_name, function_properties)
+# It randomly chooses one of those and runs it
+
+# RGlyph, (float, float), (float, float), list
 def random_function (gly, position, size, properties):
-    function = choice(properties)
-    function[0](gly=gly, position=position, size=size, properties=function[1])
 
+    # Choosing randomly
+    random_choice = choice(properties)
 
+    # Function name (type: function)
+    f_name = random_choice[0]
 
+    # Function properties (type: dictionary)
+    f_prop = random_choice[1]
 
-
-
-# ### TEST
-# fnt = CurrentFont()
-# gly = fnt["A"]
-# gly.clear()
-# pen = gly.getPen()
-
-# semiellipse(gly, 100, 100,
-#         {
-#         "width": 50,
-#         "height": 50,
-#         "squaring": .6,
-#         "orientation": "N",
-#         "clockwise": True
-#         })
+    # Running function
+    f_name(gly=gly, position=position, size=size, properties=f_prop)

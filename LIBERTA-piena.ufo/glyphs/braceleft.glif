@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="braceleft" format="1">
+  <advance width="668"/>
+  <unicode hex="007B"/>
+  <outline>
+    <contour>
+      <point x="332" y="-3" type="line"/>
+      <point x="332" y="114" type="line"/>
+      <point x="448" y="114" type="line"/>
+      <point x="448" y="-3" type="line"/>
+    </contour>
+    <contour>
+      <point x="443" y="-3" type="line"/>
+      <point x="443" y="114" type="line"/>
+      <point x="559" y="114" type="line"/>
+      <point x="559" y="-3" type="line"/>
+    </contour>
+    <contour>
+      <point x="221" y="108" type="line"/>
+      <point x="221" y="225" type="line"/>
+      <point x="337" y="225" type="line"/>
+      <point x="337" y="108" type="line"/>
+    </contour>
+    <contour>
+      <point x="221" y="219" type="line"/>
+      <point x="221" y="336" type="line"/>
+      <point x="337" y="336" type="line"/>
+      <point x="337" y="219" type="line"/>
+    </contour>
+    <contour>
+      <point x="109" y="331" type="line"/>
+      <point x="109" y="447" type="line"/>
+      <point x="226" y="447" type="line"/>
+      <point x="226" y="331" type="line"/>
+    </contour>
+    <contour>
+      <point x="221" y="442" type="line"/>
+      <point x="221" y="558" type="line"/>
+      <point x="337" y="558" type="line"/>
+      <point x="337" y="442" type="line"/>
+    </contour>
+    <contour>
+      <point x="221" y="553" type="line"/>
+      <point x="221" y="669" type="line"/>
+      <point x="337" y="669" type="line"/>
+      <point x="337" y="553" type="line"/>
+    </contour>
+    <contour>
+      <point x="332" y="664" type="line"/>
+      <point x="332" y="781" type="line"/>
+      <point x="448" y="781" type="line"/>
+      <point x="448" y="664" type="line"/>
+    </contour>
+    <contour>
+      <point x="443" y="664" type="line"/>
+      <point x="443" y="781" type="line"/>
+      <point x="559" y="781" type="line"/>
+      <point x="559" y="664" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-07-28 15:15:25 +0000</string>
+    </dict>
+  </lib>
+</glyph>

@@ -87,7 +87,7 @@ def draw_bit_fnt(fnt, fnt_dict, suffix, dsc_hgt, box_size, box_layout, syntax):
     for gly_name in fnt_dict:
 
         # Creating new glyph
-        gly = fnt.newGlyph(gly_name + "." + suffix)
+        gly = fnt.newGlyph(gly_name + suffix)
         gly.autoUnicodes()
         gly.clear()
 

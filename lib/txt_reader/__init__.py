@@ -41,11 +41,12 @@ def get_font_from_folder(folder_path):
     # Creating an empty dictionary where all the keys will be appended
     font_dict = {}
 
-    # Iterating over folder
-    for file in os.listdir(folder_path):
-        if ".txt" in file:
+    # Iterating over folders and subdirectories
+    for subdir, dirs, files in os.walk(folder_path):
+        for file in files:
+            if ".txt" in file:
 
-            # Adding to the dictionary the key value pair
-            font_dict.update(get_glyph_from_txt(folder_path + "/" + file))
+                # Adding to the dictionary the key value pair
+                font_dict.update(get_glyph_from_txt(subdir + "/" + file))
 
     return font_dict
