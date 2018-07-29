@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="two" format="1">
+  <advance width="1000.0"/>
+  <unicode hex="0032"/>
+  <outline>
+    <contour>
+      <point x="1000" y="0" type="line"/>
+      <point x="0" y="0" type="line"/>
+      <point x="0" y="560"/>
+      <point x="440" y="1000"/>
+      <point x="1000" y="1000" type="curve"/>
+    </contour>
+  </outline>
+</glyph>
