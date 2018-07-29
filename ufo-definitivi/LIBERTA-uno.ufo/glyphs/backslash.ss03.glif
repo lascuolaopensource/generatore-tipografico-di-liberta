@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glyph name="backslash.ss03" format="1">
-  <advance width="1000.0"/>
+  <advance width="1000"/>
   <outline>
     <contour>
       <point x="778" y="56" type="curve" smooth="yes"/>

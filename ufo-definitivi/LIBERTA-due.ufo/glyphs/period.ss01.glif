@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glyph name="period.ss01" format="1">
-  <advance width="333.33333333333337"/>
+  <advance width="333"/>
   <outline>
     <contour>
       <point x="167" y="0" type="line"/>

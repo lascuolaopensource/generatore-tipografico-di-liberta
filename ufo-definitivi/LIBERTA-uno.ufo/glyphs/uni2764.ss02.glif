@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glyph name="uni2764.ss02" format="1">
-  <advance width="1222.2222222222222"/>
+  <advance width="1222"/>
   <outline>
     <contour>
       <point x="556" y="-167" type="curve" smooth="yes"/>
