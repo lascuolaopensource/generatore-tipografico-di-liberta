@@ -301,12 +301,32 @@
 		<real>0.2</real>
 		<real>0.7</real>
 	</array>
+	<key>com.typemytype.robofont.compileSettings.MacRomanFirst</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.compileSettings.autohint</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.compileSettings.checkOutlines</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.compileSettings.createDummyDSIG</key>
+	<true/>
+	<key>com.typemytype.robofont.compileSettings.decompose</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.compileSettings.generateFormat</key>
+	<integer>0</integer>
+	<key>com.typemytype.robofont.compileSettings.path</key>
+	<string>/Users/macbook/Documents/progetti/x_2018/otf_29.7.2018/LIBERTA-tre.otf</string>
+	<key>com.typemytype.robofont.compileSettings.releaseMode</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.italicSlantOffset</key>
+	<integer>0</integer>
 	<key>com.typemytype.robofont.layerOrder</key>
 	<array>
 		<string>background</string>
 	</array>
 	<key>com.typemytype.robofont.segmentType</key>
 	<string>curve</string>
+	<key>com.typemytype.robofont.shouldAddPointsInSplineConversion</key>
+	<integer>1</integer>
 	<key>com.typemytype.robofont.sort</key>
 	<array>
 		<dict>
@@ -396,7 +416,6 @@
 				<string>y</string>
 				<string>yacute</string>
 				<string>z</string>
-				<string>dotlessi</string>
 				<string>zero</string>
 				<string>one</string>
 				<string>two</string>
@@ -521,6 +540,7 @@
 				<string>Wgrave</string>
 				<string>Ycircumflex</string>
 				<string>Ygrave</string>
+				<string>idotless</string>
 				<string>wacute</string>
 				<string>wcircumflex</string>
 				<string>wgrave</string>

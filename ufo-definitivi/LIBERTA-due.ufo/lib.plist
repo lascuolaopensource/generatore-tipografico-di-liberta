@@ -817,12 +817,32 @@
 		<real>0.2</real>
 		<real>0.7</real>
 	</array>
+	<key>com.typemytype.robofont.compileSettings.MacRomanFirst</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.compileSettings.autohint</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.compileSettings.checkOutlines</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.compileSettings.createDummyDSIG</key>
+	<true/>
+	<key>com.typemytype.robofont.compileSettings.decompose</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.compileSettings.generateFormat</key>
+	<integer>0</integer>
+	<key>com.typemytype.robofont.compileSettings.path</key>
+	<string>/Users/macbook/Documents/progetti/x_2018/otf_29.7.2018/LIBERTA-due.otf</string>
+	<key>com.typemytype.robofont.compileSettings.releaseMode</key>
+	<integer>1</integer>
+	<key>com.typemytype.robofont.italicSlantOffset</key>
+	<integer>0</integer>
 	<key>com.typemytype.robofont.layerOrder</key>
 	<array>
 		<string>background</string>
 	</array>
 	<key>com.typemytype.robofont.segmentType</key>
 	<string>curve</string>
+	<key>com.typemytype.robofont.shouldAddPointsInSplineConversion</key>
+	<integer>1</integer>
 	<key>com.typemytype.robofont.sort</key>
 	<array>
 		<dict>
@@ -912,7 +932,6 @@
 				<string>y</string>
 				<string>yacute</string>
 				<string>z</string>
-				<string>dotlessi</string>
 				<string>zero</string>
 				<string>one</string>
 				<string>two</string>
@@ -1213,8 +1232,6 @@
 				<string>uni1F3B5.ss02</string>
 				<string>uni1F33F</string>
 				<string>quoteleft.ss01</string>
-				<string>dotlessi.ss01</string>
-				<string>dotlessi.ss02</string>
 				<string>a.alt.ss03</string>
 				<string>G.ss03</string>
 				<string>G.ss02</string>
@@ -1328,7 +1345,6 @@
 				<string>a.alt.ss01</string>
 				<string>asterisk.ss02</string>
 				<string>a.alt.ss02</string>
-				<string>dotlessi.ss03</string>
 				<string>zero.onum</string>
 				<string>uni2198.ss02</string>
 				<string>uni2198.ss03</string>
@@ -1553,11 +1569,15 @@
 				<string>Wgrave</string>
 				<string>Ycircumflex</string>
 				<string>Ygrave</string>
+				<string>idotless</string>
 				<string>wacute</string>
 				<string>wcircumflex</string>
 				<string>wgrave</string>
 				<string>ycircumflex</string>
 				<string>ygrave</string>
+				<string>idotless.ss01</string>
+				<string>idotless.ss02</string>
+				<string>idotless.ss03</string>
 			</array>
 			<key>type</key>
 			<string>glyphList</string>

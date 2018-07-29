@@ -2,13 +2,13 @@ languagesystem DFLT dflt;
 languagesystem latn dflt;
 
 
-@alt_base = [B K M Q R W X Y a r s w x y zero three];
+@alt_base = [B K M Q R W X a r s w x y zero three];
 
-@alt1_base = [Q X Y x];
+@alt1_base = [Q X x];
 
-@alt = [B.alt K.alt M.alt Q.alt R.alt W.alt X.alt Y.alt a.alt r.alt s.alt w.alt x.alt y.alt zero.alt three.alt];
+@alt = [B.alt K.alt M.alt Q.alt R.alt W.alt X.alt a.alt r.alt s.alt w.alt x.alt y.alt zero.alt three.alt];
 
-@alt1 = [Q.alt1 X.alt1 Y.alt1 x.alt1];
+@alt1 = [Q.alt1 X.alt1 x.alt1];
 
 
 feature aalt {
