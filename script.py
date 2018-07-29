@@ -115,7 +115,7 @@ sintassi = {
     "%": (do_nothing, {"null": "null"}),
     "&": (do_nothing, {"null": "null"}),
     "$": (do_nothing, {"null": "null"}),
-    "£": (do_nothing, {"null": "null"})
+    "+": (do_nothing, {"null": "null"})
 }
 
 
