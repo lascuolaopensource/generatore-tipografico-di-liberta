@@ -221,6 +221,18 @@ def ellipse_quarter(gly, position, size, properties):
 
 
 
+# ellipse_quarter_ro
+# Ellipse quarter with random orientation
+def ellipse_quarter_ro(gly, position, size, properties):
+
+    # Choosing random orientation
+    properties["orientation"] = choice(["NW", "SW", "NE", "SE"])
+
+    # Drawing ellipse
+    ellipse_quarter(gly, position, size, properties)
+
+
+
 # quarter
 # Draws a quarter of circumference
 
@@ -274,6 +286,17 @@ def ellipse_half(gly, position, size, properties):
     c.round()
     gly.update()
 
+
+
+# ellipse_half_ro
+# Ellipse half with random orientation
+def ellipse_half_ro(gly, position, size, properties):
+
+    # Choosing random orientation
+    properties["orientation"] = choice(["E", "W", "N", "S"])
+
+    # Drawing ellipse
+    ellipse_half(gly, position, size, properties)
 
 
 

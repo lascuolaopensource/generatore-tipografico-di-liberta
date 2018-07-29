@@ -11,6 +11,8 @@ from txt_reader import *
 from draw_bits import draw_bit_fnt
 from shape_functions import *
 
+from random import choice
+
 
 
 
@@ -29,8 +31,8 @@ gly_baseline = 2
 width_ratio = 1
 
 # Set number of "pixelone" sub-units
-box_col = 2 
-box_row = 2
+box_col = 1
+box_row = 1
 
 # Set name of set (".alt1", ".alt2", ...)
 set_suffix = ""
@@ -64,7 +66,6 @@ p_ellipse_t = {
 
 p_el_quarter = {
     "squaring": .56,
-    "orientation": "NW",
     "scale": (1,1),
     "rotation": 0,
     "clockwise": True
@@ -72,7 +73,6 @@ p_el_quarter = {
 
 p_el_quarter_t = {
     "squaring": 0,
-    "orientation": "NW",
     "scale": (1,1),
     "rotation": 0,
     "clockwise": True
@@ -80,7 +80,6 @@ p_el_quarter_t = {
 
 p_el_half = {
     "squaring": .56,
-    "orientation": "N",
     "scale": (1, 1),
     "rotation": 0,
     "clockwise": True
@@ -88,20 +87,19 @@ p_el_half = {
 
 p_el_half_t = {
     "squaring": 0,
-    "orientation": "N",
     "scale": (1, 1),
     "rotation": 0,
     "clockwise": True
 }
 
 p_random = [
-    (rectangle      , p_rectangle),
-    (ellipse        , p_ellipse),
-    #(ellipse        , p_ellipse_t),
-    (ellipse_quarter, p_el_quarter),
-    #(ellipse_quarter, p_el_quarter_t),
-    (ellipse_half   , p_el_half),
-    (ellipse_half   , p_el_half_t)
+    (rectangle         , p_rectangle),
+    (ellipse           , p_ellipse),
+    (ellipse           , p_ellipse_t),
+    (ellipse_quarter_ro, p_el_quarter),
+    (ellipse_quarter_ro, p_el_quarter_t),
+    (ellipse_half_ro   , p_el_half),
+    (ellipse_half_ro   , p_el_half_t)
 ]
 
 
