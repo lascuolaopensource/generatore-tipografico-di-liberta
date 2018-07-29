@@ -16,10 +16,6 @@
 	<integer>0</integer>
 	<key>openTypeHeadCreated</key>
 	<string>2018/07/29 15:38:44</string>
-	<key>openTypeNamePreferredFamilyName</key>
-	<string>New Font</string>
-	<key>openTypeNamePreferredSubfamilyName</key>
-	<string>Regular</string>
 	<key>openTypeOS2WeightClass</key>
 	<integer>400</integer>
 	<key>openTypeOS2WidthClass</key>
@@ -44,6 +40,8 @@
 	<key>postscriptStemSnapV</key>
 	<array>
 	</array>
+	<key>styleMapFamilyName</key>
+	<string>LIBERTA tre</string>
 	<key>styleMapStyleName</key>
 	<string>regular</string>
 	<key>styleName</key>
