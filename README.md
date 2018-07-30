@@ -23,8 +23,15 @@ Indice
 8. Partecipanti
 
 
+Avvertenza: È il 30 luglio e fa un caldo tremendo, la tensione ha già raggiunto il picco, ci si comincia a rilassare: è possibile che questa documentazione contenga errori :) 
+
 ## Struttura del progetto
 
+La cartella **lib** contiene la libreria vera e propria divisa in moduli.
+
+La cartella **assets** contiene le cartelle con dentro le font descritte come testo; in modo particolare la cartella **letters** contiene la struttura della famiglia LIBERTA tonda e quella **italic** contiene la struttura della famiglia LIBERTA italic.
+
+La cartella **ufo-definitivi** è stata inclusa nel progetto perché, data la natura delle descrizioni testuali (che saranno descritte sotto) è impossible definire dei valori di spaziatura negativa e, per non fare crescere la complessità del progetto oltre ogni ragionevolezza non esiste un sistema per il kerning dei caratteri per cui, in modo particolare per l'italic, è stato necessario passare da un editor di font e modificare le font generate.
 
 
 
@@ -81,7 +88,7 @@ Il modulo **txt_reader** è usato per estrarre una rappresentazione della strutt
 
 ### Tipi di dati
 
-GlyphName: String
+*GlyphName*: String
 
 Il nome del glifo come stringa.
 
@@ -188,7 +195,7 @@ La funzione accetta come argomenti un RGlyph, una Command, la posizione in cui i
 
 ## Utility per la descrizione di contorni
 
-import shape_functions
+*import shape_functions*
 
 Il modulo **shape_functions** fornisce delle funzione di utilità per la scrittura di contorni e di primitive.
 
@@ -321,7 +328,7 @@ Come ellipse_half ma sceglie l'orientamento in modo casuale.
 
 ## Composizione di funzioni per disegnare
 
-import composition
+*import composition*
 
 Il modulo **composition** consente di comporre un numero arbitrario di funzioni di disegno in altre funzioni di disegno suddividendo il box in senso orizzontale o verticale.
 
@@ -413,13 +420,13 @@ Il nome Libertà è un gioco tra il significato comune del termine e il nome del
 
 ## I partecipanti
 
-Giovanni
-Giulio
-Greta 
-Laura
-Micol
-Roberto
-Daniele
+* Giovanni
+* Giulio
+* Greta 
+* Laura
+* Micol
+* Roberto
+* Daniele
 
 La libreria è stata scritta in massima parte da Giovanni sulla base di alcune funzioni scritte da Daniele per il corso di Type and Code.
 I glifi contenuti nella cartella assets/letters sono il lavoro collettivo del gruppo di X Type, in modo particolare di Giulio, Greta, Laura, Micol e Roberto).
