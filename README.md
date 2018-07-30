@@ -1,4 +1,4 @@
-# Libreria Generatore tipografico di Libertà
+# Libreria Generatore Tipografico di Libertà
 
 Una libreria per la generazione di caratteri a partire da una grammatica di simboli.
 
@@ -7,17 +7,25 @@ La descrizione dei singoli glifi è fatta con puro testo, il numero di simboli u
 
 La libreria può essere quindi usata come un interprete minimo di “linguaggi” arbitrari per la scrittura di font basate su elementi discreti: in questo senso è utile anche per riflettere, a un livello di complessità basso ma sufficiente, su alcuni problemi legati alla parametrizzazione del carattere tipografico e alla scrittura di linguaggi specifici per la creazione di “meta” font.
 
-**Libertà** è scritta in Python e può essere usata con uno stile di programmazione funzionale.
+Il **Generatore Tipografico di Libertà** è scritto in Python e può essere usato con uno stile di programmazione funzionale.
+
+
 
 Indice
 
-1. Rappresentazione della font come testo
-2. Interprete
-3. Utility per la descrizione di contorni
-4. Composizione di funzioni per disegnare
-5. Prospettive, suggerimenti e commenti dei partecipanti
-6. Il nome del progetto
-7. Partecipanti
+1. Struttura del progetto
+2. Rappresentazione della font come testo
+3. Interprete
+4. Utility per la descrizione di contorni
+5. Composizione di funzioni per disegnare
+6. Prospettive, suggerimenti e commenti dei partecipanti
+7. Il nome del progetto
+8. Partecipanti
+
+
+## Struttura del progetto
+
+
 
 
 ## Rappresentazione della font come testo
@@ -291,6 +299,26 @@ properties: ListOf (Tuple (DrawingFunc, DrawingProps))
 La funzione **random_function** accetta come argomenti un RGlyph e ci disegna con una delle funzioni passate tra le proprietà (properties) scelta in modo casuale nella posizione data, con le dimensioni date. Ogni funzione è passata in una lista insieme alle proprietà che le devono essere applicate.
 
 
+ellipse_quarter_ro(gly, position, size, properties) -> None
+
+gly: RGlyph
+position: Vect
+size: Vect
+properties: ListOf (Tuple (DrawingFunc, DrawingProps))
+
+Come ellipse_quarter ma scelglie l'orientamento in modo casuale.
+
+
+ellipse_half_ro(gly, position, size, properties) -> None
+
+gly: RGlyph
+position: Vect
+size: Vect
+properties: ListOf (Tuple (DrawingFunc, DrawingProps))
+
+Come ellipse_half ma sceglie l'orientamento in modo casuale.
+
+
 ## Composizione di funzioni per disegnare
 
 import composition
@@ -382,3 +410,30 @@ Se interpretiamo questo lavoro come la realizzazione di un linguaggio incompleto
 ## Il nome del progetto
 
 Il nome Libertà è un gioco tra il significato comune del termine e il nome del quartiere di Bari in cui si trova l'Officina degli Esordi. Il nome è stato scelto dai partecipanti al gruppo di X Type (forse non tutti all'unanimità, ma i più decisi).
+
+## I partecipanti
+
+Giovanni
+Giulio
+Greta 
+Laura
+Micol
+Roberto
+Daniele
+
+La libreria è stata scritta in massima parte da Giovanni sulla base di alcune funzioni scritte da Daniele per il corso di Type and Code.
+I glifi contenuti nella cartella assets/letters sono il lavoro collettivo del gruppo di X Type, in modo particolare di Giulio, Greta, Laura, Micol e Roberto).
+I glifi nella cartella assets/italic sono il frutto del lavoro di Giulio.
+Le forme che compongono le lettere sono state proposte dal gruppo di X Identità coordinato da Andrea Bergamini.
+
+Ringrazio tutti per avere avuto la pazienza di sopportare le mie stranezze comunicative,
+Daniele.
+
+
+
+Non è il caos ma
+l'ordine, invece.
+È la semplicità
+che è difficile a farsi.
+
+B.B.
