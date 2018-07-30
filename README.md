@@ -371,7 +371,7 @@ fn = split_ver (rectangle, split_hor (rectangle, rectangle))
 
 ### Daniele
 Il codice è scritto in parte in uno stile funzionale (nel senso della *functional programming*) in parte no. Questo rispecchia le diverse inclinazioni di chi lo ha scritto ma soprattutto il fatto che la libreria sottostante, Robofab, opera quasi sempre con dati mutabili e attraverso mutazioni. 
-Credo che si potrebbe, come esercizio, tentare comunque di mantenere uno stile funzionale, pur scontando il fatto che le procedure determineranno mutazioni e "effetti collaterali", impomnendo che tutte le funzioni ritornino qualcosa. Una riscrittura più radicale in termini di programmazione funzionale potrebbe costruire un livello che isoli le mutazioni di robofab attraverso copie: in questo modo si eliminerebbero tutte le mutaziuoni e tutto il codice potrebbe essere libero da effetti collaterali.
+Credo che si potrebbe, come esercizio, tentare comunque di mantenere uno stile funzionale, pur scontando il fatto che le procedure determineranno mutazioni e "effetti collaterali", imponendo che tutte le funzioni ritornino qualcosa. Una riscrittura più radicale in termini di programmazione funzionale potrebbe costruire un livello che isoli le mutazioni di robofab attraverso copie: in questo modo si eliminerebbero tutte le mutaziuoni e tutto il codice potrebbe essere libero da effetti collaterali.
 Senza arrivare a questo, una riscrittura in termini funzionali potrebbe cercare di cambiare determinati meccanismi di passaggio delle proprietà per le funzioni.
 
 Da un punto di vista dell'usabilità sarebbe forse il caso di aggiungere dei controlli che "assicurino" che il corretto tipo di dati è passato alle funzioni, in questo modo sarebbe più facile tracciare e individuare gli errori.
@@ -381,4 +381,4 @@ Se interpretiamo questo lavoro come la realizzazione di un linguaggio incompleto
 
 ## Il nome del progetto
 
-Il nome Libertà è un gioco tra il significato comune del termine e il nome del quartiere di Bari in cui si trova l'officina degli esordi.
+Il nome Libertà è un gioco tra il significato comune del termine e il nome del quartiere di Bari in cui si trova l'Officina degli Esordi. Il nome è stato scelto dai partecipanti al gruppo di X Type (forse non tutti all'unanimità, ma i più decisi).
