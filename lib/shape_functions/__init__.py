@@ -312,7 +312,7 @@ def ellipse_half_ro(gly, position, size, properties):
 # RGlyph, (float, float), (float, float), list
 def random_function (gly, position, size, properties):
 
-    # Choosing randomly
+    # Choosing randomly a tuple (function, function_properties)
     random_choice = choice(properties)
 
     # Function name (type: function)
