@@ -1,6 +1,9 @@
 # Libreria Generatore Tipografico di Libertà*
 #### *richiede Robofont 1.8.x
 
+
+
+
 Una libreria per la generazione di caratteri a partire da una grammatica di simboli.
 
 Lo scopo della libreria è quello di fornire uno strumento per la generazione di caratteri tipografici composti da elementi discreti.
