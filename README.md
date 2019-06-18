@@ -1,5 +1,5 @@
-# Libreria Generatore Tipografico di Libertà
-## *richiede Robofont 1.8.x
+# Libreria Generatore Tipografico di Libertà*
+#### *richiede Robofont 1.8.x
 
 Una libreria per la generazione di caratteri a partire da una grammatica di simboli.
 
