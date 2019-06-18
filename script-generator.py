@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+### Run with Robofont 1.8.x
+
 ### MODULES
 
 import sys
@@ -21,7 +23,7 @@ from random import choice
 ### VARIABLES
 
 # Absolute path of folder containing glyphs'txts
-txt_path = os.getcwd() + "/assets/italic"
+txt_path = os.getcwd() + "/assets/letters"
 
 # Set glyphs'baseline row (counting from bottom of txt)
 gly_baseline = 2
@@ -31,8 +33,8 @@ gly_baseline = 2
 width_ratio = 1
 
 # Set number of "pixelone" sub-units
-box_col = 1
-box_row = 1
+box_col = 2
+box_row = 2
 
 # Set name of set (".alt1", ".alt2", ...)
 set_suffix = ""
@@ -44,12 +46,14 @@ set_suffix = ""
 
 ### SHAPE PROPERTIES
 
+# Rectangle
 p_rectangle = {
     "scale": (1,1),
     "rotation": 0,
     "clockwise": True
     }
 
+# Ellipse
 p_ellipse = {
     "squaring": .56,
     "scale": (1,1),
@@ -57,6 +61,7 @@ p_ellipse = {
     "clockwise": True
     }
 
+# Rhombus (== ellipse with zero squaring)
 p_ellipse_t = {
     "squaring": 0,
     "scale": (1,1),
@@ -64,56 +69,72 @@ p_ellipse_t = {
     "clockwise": True
     }
 
+# Ellipse quarter
+# Possible orientations: NE, NW, SE, SW
 p_el_quarter = {
     "squaring": .56,
+    "orientation": "NW",
     "scale": (1,1),
     "rotation": 0,
     "clockwise": True
 }
 
+# Rhombus (== ellipse with zero squaring) quarter
+# Possible orientations: NE, NW, SE, SW
 p_el_quarter_t = {
     "squaring": 0,
+    "orientation": "NW",
     "scale": (1,1),
     "rotation": 0,
     "clockwise": True
 }
 
+# Ellipse half
+# Possible orientations: N, S, E, W
 p_el_half = {
     "squaring": .56,
+    "orientation": "N",
     "scale": (1, 1),
     "rotation": 0,
     "clockwise": True
 }
 
+# Rhombus (== ellipse with zero squaring) half
+# Possible orientations: N, S, E, W
 p_el_half_t = {
     "squaring": 0,
+    "orientation": "N",
     "scale": (1, 1),
     "rotation": 0,
     "clockwise": True
 }
 
+# Random function selector
 p_random = [
     (rectangle         , p_rectangle),
     (ellipse           , p_ellipse),
-    #(ellipse           , p_ellipse_t),
+    (ellipse           , p_ellipse_t),
     (ellipse_quarter_ro, p_el_quarter),
-    #(ellipse_quarter_ro, p_el_quarter_t),
+    (ellipse_quarter_ro, p_el_quarter_t),
     (ellipse_half_ro   , p_el_half),
     (ellipse_half_ro   , p_el_half_t)
 ]
+
+# Do nothing
+p_do_nothing = {"null": "null"}
 
 
 
 ### SINTASSI
 
 sintassi = {
-    ".": (do_nothing, {"null": "null"}),
-    "@": (rectangle, p_rectangle),
-    "#": (rectangle, p_rectangle),
-    "%": (do_nothing, {"null": "null"}),
-    "&": (do_nothing, {"null": "null"}),
-    "$": (do_nothing, {"null": "null"}),
-    "+": (do_nothing, {"null": "null"})
+    ".": (do_nothing, p_do_nothing),
+    "@": (random_function, p_random),
+    "#": (random_function, p_random),
+    "%": (do_nothing, p_do_nothing),
+    "&": (do_nothing, p_do_nothing),
+    "$": (do_nothing, p_do_nothing),
+    "+": (do_nothing, p_do_nothing)
 }
 
 
