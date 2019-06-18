@@ -23,7 +23,7 @@ from random import choice
 ### VARIABLES
 
 # Absolute path of folder containing glyphs'txts
-txt_path = os.getcwd() + "/assets/letters"
+txt_path = os.getcwd() + "/assets/test"
 
 # Set glyphs'baseline row (counting from bottom of txt)
 gly_baseline = 2
