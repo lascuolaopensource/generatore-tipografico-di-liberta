@@ -57,7 +57,7 @@ A
 .......
 
 ```
-I file dei glifi sono contenuti in una cartella e organizzati in sottocartelle come questo esempio:
+I file dei glifi sono contenuti in una cartella e organizzati in sottocartelle come questo esempio. Lo script agirà in maniera ricorsiva iterando su tutte le sottocartelle del progetto.
   
 ```
 font_liberta
