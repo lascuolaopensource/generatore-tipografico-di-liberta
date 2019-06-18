@@ -13,8 +13,6 @@ from txt_reader import *
 from draw_bits import draw_bit_fnt
 from shape_functions import *
 
-from random import choice
-
 
 
 
@@ -22,8 +20,11 @@ from random import choice
 
 ### VARIABLES
 
+# Absolute path of project font
+fnt_path = os.getcwd() + "/Untitled.ufo"
+
 # Absolute path of folder containing glyphs'txts
-txt_path = os.getcwd() + "/assets/test"
+txt_path = os.getcwd() + "/assets/txt-letters/test"
 
 # Set glyphs'baseline row (counting from bottom of txt)
 gly_baseline = 2
@@ -33,18 +34,55 @@ gly_baseline = 2
 width_ratio = 1
 
 # Set number of "pixelone" sub-units
-box_col = 2
-box_row = 2
+box_col = 1
+box_row = 1
 
 # Set name of set (".alt1", ".alt2", ...)
 set_suffix = ""
 
 
 
+### SYMBOL CHOICE
+
+# Absolute path of symbols font
+font_symbols_path = os.getcwd() + "/assets/symbols/symbols-ode.ufo"
+
+# Opening font containing symbols
+font_symbols = OpenFont(font_symbols_path)
+
+# Choosing symbol glyph from font
+gly_symbol = font_symbols["cultura0"]
+
+# Making a glyph list
+gly_lst = [
+    font_symbols["cultura0"],
+    font_symbols["cultura1"],
+    font_symbols["cultura2"],
+    font_symbols["esplosivo0"],
+    ]
+
+
 
 
 
 ### SHAPE PROPERTIES
+
+# Symbol
+p_symbol = {
+    "source_glyph": gly_symbol,
+    "scale": (1,1),
+    "rotation": 5,
+    "proportions_keep": False,
+    "proportions_mode": "X"
+    }
+
+p_symbol_list = {
+    "source_glyph_list": gly_lst,
+    "scale": (1,1),
+    "rotation": 5,
+    "proportions_keep": False,
+    "proportions_mode": "X"
+    }
 
 # Rectangle
 p_rectangle = {
@@ -123,14 +161,13 @@ p_random = [
 # Do nothing
 p_do_nothing = {"null": "null"}
 
-
-
 ### SINTASSI
 
 sintassi = {
     ".": (do_nothing, p_do_nothing),
-    "@": (random_function, p_random),
-    "#": (random_function, p_random),
+    "@": (do_nothing, p_do_nothing),
+    "#": (symbol_list, p_symbol_list),
+    #"#": (rectangle , p_rectangle),
     "%": (do_nothing, p_do_nothing),
     "&": (do_nothing, p_do_nothing),
     "$": (do_nothing, p_do_nothing),
@@ -143,9 +180,7 @@ sintassi = {
 
 
 ### INSTRUCTIONS
-
-# Selecting font in robofont
-fnt = CurrentFont()
+fnt = OpenFont(fnt_path)
 
 # Creating the dictionary with all the instructions
 fnt_dict = get_font_from_folder(txt_path)
@@ -170,7 +205,6 @@ dsc_hgt = -box_hgt * gly_baseline
 
 
 ### DRAWING FONT
-
 draw_bit_fnt(fnt = fnt,
              fnt_dict = fnt_dict,
              suffix = set_suffix,
