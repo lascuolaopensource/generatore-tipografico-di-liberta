@@ -328,28 +328,15 @@ def symbol(gly, position, size, properties):
     src_hgt = abs(src.box[1] - src.box[3])
 
     # Calculating scaling factor
-    scl_x = 1
-    if src_wdt < w:
-        scl_x = w/src_wdt
-    else:
-        scl_x = src_wdt/w
-    scl_y = 1
-    if src_hgt < h:
-        scl_y = h/src_hgt
-    else:
-        scl_y = src_hgt/h
+    scl_x = w/src_wdt
+    scl_y = h/src_hgt
 
 
     # Iterating over all contours in source glyph
     for c in src:
 
-        # Getting pen on target glyph
-        pen = gly.getPen()
-        # Drawing contour on target glyph
-        c.draw(pen)
-
-        # Selecting the drawn contour
-        d = gly[-1]
+        # Copying contour
+        d = c.copy()
 
         # Moving the contour to (0,0)
         d.move((-src_x - src_wdt/2, -src_y - src_hgt/2))
@@ -368,7 +355,11 @@ def symbol(gly, position, size, properties):
         d.rotate(rot)
         d.move(position)
         d.round()
-        gly.update()
+
+        # Getting pen on target glyph
+        pen = gly.getPen()
+        # Drawing contour on target glyph
+        d.draw(pen)
 
 
 # Draws a random symbol taken from a glyph list

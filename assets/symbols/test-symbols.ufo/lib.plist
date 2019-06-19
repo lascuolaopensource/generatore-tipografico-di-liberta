@@ -221,33 +221,10 @@
 				<string>degree</string>
 				<string>paragraph</string>
 				<string>space</string>
-				<string>cultura0</string>
-				<string>cultura1</string>
-				<string>cultura2</string>
-				<string>esplosivo0</string>
-				<string>esplosivo1</string>
-				<string>esplosivo2</string>
-				<string>indipendenze0</string>
-				<string>indipendenze1</string>
-				<string>indipendenze2</string>
-				<string>processi0</string>
-				<string>processi1</string>
-				<string>processi2</string>
-				<string>produzione0</string>
-				<string>produzione1</string>
-				<string>produzione2</string>
-				<string>relazioni0</string>
-				<string>relazioni1</string>
-				<string>relazioni2</string>
-				<string>ricerca0</string>
-				<string>ricerca1</string>
-				<string>ricerca2</string>
-				<string>spazio0</string>
-				<string>spazio1</string>
-				<string>spazio2</string>
-				<string>utile0</string>
-				<string>utile1</string>
-				<string>utile2</string>
+				<string>test_symbol-3</string>
+				<string>test_symbol-2</string>
+				<string>test_symbol-1</string>
+				<string>test_symbol-0</string>
 			</array>
 			<key>type</key>
 			<string>glyphList</string>
@@ -456,33 +433,10 @@
 		<string>degree</string>
 		<string>paragraph</string>
 		<string>space</string>
-		<string>cultura0</string>
-		<string>cultura1</string>
-		<string>cultura2</string>
-		<string>esplosivo0</string>
-		<string>esplosivo1</string>
-		<string>esplosivo2</string>
-		<string>indipendenze0</string>
-		<string>indipendenze1</string>
-		<string>indipendenze2</string>
-		<string>processi0</string>
-		<string>processi1</string>
-		<string>processi2</string>
-		<string>produzione0</string>
-		<string>produzione1</string>
-		<string>produzione2</string>
-		<string>relazioni0</string>
-		<string>relazioni1</string>
-		<string>relazioni2</string>
-		<string>ricerca0</string>
-		<string>ricerca1</string>
-		<string>ricerca2</string>
-		<string>spazio0</string>
-		<string>spazio1</string>
-		<string>spazio2</string>
-		<string>utile0</string>
-		<string>utile1</string>
-		<string>utile2</string>
+		<string>test_symbol-3</string>
+		<string>test_symbol-2</string>
+		<string>test_symbol-1</string>
+		<string>test_symbol-0</string>
 	</array>
 </dict>
 </plist>

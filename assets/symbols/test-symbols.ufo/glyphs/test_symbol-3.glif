@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="test_symbol-3" format="1">
+  <advance width="500"/>
+  <outline>
+    <contour>
+      <point x="97" y="110" type="line"/>
+      <point x="106" y="96" type="line"/>
+      <point x="118" y="108" type="line"/>
+      <point x="108" y="127" type="line"/>
+    </contour>
+  </outline>
+</glyph>

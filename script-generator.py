@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-### Run with Robofont 1.8.x
+# Run with Robofont 1.8.x
 
 ### MODULES
-
 import sys
 import os
 sys.path.insert(0, os.getcwd() + "/lib")
@@ -21,10 +20,10 @@ from shape_functions import *
 ### VARIABLES
 
 # Absolute path of project font
-fnt_path = os.getcwd() + "/Untitled.ufo"
+fnt_path = os.getcwd() + "/project.ufo"
 
 # Absolute path of folder containing glyphs'txts
-txt_path = os.getcwd() + "/assets/txt-letters/test"
+txt_path = os.getcwd() + "/assets/txt-letters/liberta/roman/Letter/Lowercase"
 
 # Set glyphs'baseline row (counting from bottom of txt)
 gly_baseline = 2
@@ -43,31 +42,105 @@ set_suffix = ""
 
 
 ### SYMBOL CHOICE
+# This is an example of loading a symbol from ufo file
 
 # Absolute path of symbols font
-font_symbols_path = os.getcwd() + "/assets/symbols/symbols-ode.ufo"
+font_symbols_path = os.getcwd() + "/assets/symbols/test-symbols.ufo"
 
 # Opening font containing symbols
 font_symbols = OpenFont(font_symbols_path)
 
-# Choosing symbol glyph from font
-gly_symbol = font_symbols["cultura0"]
+## Now you can:
 
-# Making a glyph list
+# A) USE SYMBOL FUNCTION - You can choose a specific symbol glyph from font
+gly_symbol = font_symbols["test_symbol-0"]
+
+# B) USE SYMBOL_LIST FUNCTION - You can create a list of symbols that will be randomly chosen
 gly_lst = [
-    font_symbols["cultura0"],
-    font_symbols["cultura1"],
-    font_symbols["cultura2"],
-    font_symbols["esplosivo0"],
+    font_symbols["test_symbol-0"],
+    font_symbols["test_symbol-1"],
+    font_symbols["test_symbol-2"],
+    font_symbols["test_symbol-3"],
     ]
 
 
 
 
 
-### SHAPE PROPERTIES
 
-# Symbol
+"""
+AVAILABLE FUNCTIONS
+
+Here's a list of available functions for drawing:
+
+- do_nothing
+
+- rectangle
+- ellipse
+- ellipse_half
+- ellipse_half_ro (randomly chooses the orientation)
+- ellipse_quarter
+- ellipse_quarter_ro (randomly chooses the orientation)
+
+- symbol (draws a symbol taken from another glyph)
+- symbol_list (draws a random symbol taken from a list of glyphs)
+
+- random_function (draws a random function from the ones specified)
+"""
+
+
+
+
+
+
+"""
+SHAPE PROPERTIES
+
+All the functions accept an argument which is called "properties":
+it is a dictionary consisting of several properties that can be used to modify the shapes
+Below, there's a list of all the possible properties for each function,
+plus some extras.
+"""
+
+# do_nothing
+p_do_nothing = {
+    "null": "null"
+    }
+
+# rectangle
+p_rectangle = {
+    "scale": (1,1),
+    "rotation": 0,
+    "clockwise": True
+    }
+
+# ellipse
+p_ellipse = {
+    "squaring": .56,
+    "scale": (1,1),
+    "rotation": 0,
+    "clockwise": True
+    }
+
+# ellipse_half (Possible orientations: N, S, E, W) AND ellipse_half_ro
+p_ellipse_half = {
+    "squaring": .56,
+    "orientation": "N",
+    "scale": (1, 1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+# ellipse_quarter (Possible orientations: NE, NW, SE, SW) AND ellipse_quarter_ro
+p_ellipse_quarter = {
+    "squaring": .56,
+    "scale": (1,1),
+    "rotation": 0,
+    "orientation": "NW",
+    "clockwise": True
+}
+
+# symbol
 p_symbol = {
     "source_glyph": gly_symbol,
     "scale": (1,1),
@@ -76,6 +149,7 @@ p_symbol = {
     "proportions_mode": "X"
     }
 
+# symbol_list
 p_symbol_list = {
     "source_glyph_list": gly_lst,
     "scale": (1,1),
@@ -84,62 +158,18 @@ p_symbol_list = {
     "proportions_mode": "X"
     }
 
-# Rectangle
-p_rectangle = {
-    "scale": (1,1),
-    "rotation": 0,
-    "clockwise": True
-    }
+## EXTRAS 1 - Rhombus, triangles
 
-# Ellipse
-p_ellipse = {
-    "squaring": .56,
-    "scale": (1,1),
-    "rotation": 0,
-    "clockwise": True
-    }
-
-# Rhombus (== ellipse with zero squaring)
-p_ellipse_t = {
+# rhombus == an ellipse with zero squaring
+p_ellipse_0 = {
     "squaring": 0,
     "scale": (1,1),
     "rotation": 0,
     "clockwise": True
     }
 
-# Ellipse quarter
-# Possible orientations: NE, NW, SE, SW
-p_el_quarter = {
-    "squaring": .56,
-    "orientation": "NW",
-    "scale": (1,1),
-    "rotation": 0,
-    "clockwise": True
-}
-
-# Rhombus (== ellipse with zero squaring) quarter
-# Possible orientations: NE, NW, SE, SW
-p_el_quarter_t = {
-    "squaring": 0,
-    "orientation": "NW",
-    "scale": (1,1),
-    "rotation": 0,
-    "clockwise": True
-}
-
-# Ellipse half
-# Possible orientations: N, S, E, W
-p_el_half = {
-    "squaring": .56,
-    "orientation": "N",
-    "scale": (1, 1),
-    "rotation": 0,
-    "clockwise": True
-}
-
-# Rhombus (== ellipse with zero squaring) half
-# Possible orientations: N, S, E, W
-p_el_half_t = {
+# isosceles triangle = half ellipse with zero squaring (Possible orientations: N, S, E, W)
+p_ellipse_half_0 = {
     "squaring": 0,
     "orientation": "N",
     "scale": (1, 1),
@@ -147,31 +177,66 @@ p_el_half_t = {
     "clockwise": True
 }
 
-# Random function selector
-p_random = [
-    (rectangle         , p_rectangle),
-    (ellipse           , p_ellipse),
-    (ellipse           , p_ellipse_t),
-    (ellipse_quarter_ro, p_el_quarter),
-    (ellipse_quarter_ro, p_el_quarter_t),
-    (ellipse_half_ro   , p_el_half),
-    (ellipse_half_ro   , p_el_half_t)
+# right triangle = a quarter of ellipse with zero squaring (Possible orientations: NE, NW, SE, SW)
+p_ellipse_quarter_0 = {
+    "squaring": 0,
+    "orientation": "NW",
+    "scale": (1,1),
+    "rotation": 0,
+    "clockwise": True
+}
+
+## EXTRAS 2 - Ready-made corners
+
+p_ellipse_quarter_NW = p_ellipse_quarter.copy()
+p_ellipse_quarter_NW["orientation"] = "NW"
+
+p_ellipse_quarter_NE = p_ellipse_quarter.copy()
+p_ellipse_quarter_NE["orientation"] = "NE"
+
+p_ellipse_quarter_SW = p_ellipse_quarter.copy()
+p_ellipse_quarter_SW["orientation"] = "SW"
+
+p_ellipse_quarter_SE = p_ellipse_quarter.copy()
+p_ellipse_quarter_SE["orientation"] = "SE"
+
+## EXTRAS 3 - Random
+
+# random_function
+p_random_function = [
+    (rectangle         , p_rectangle        ),
+    (ellipse           , p_ellipse          ),
+    (ellipse           , p_ellipse_0        ),
+    (ellipse_half_ro   , p_ellipse_half     ),
+    (ellipse_half_ro   , p_ellipse_half_0   ),
+    (ellipse_quarter_ro, p_ellipse_quarter  ),
+    (ellipse_quarter_ro, p_ellipse_quarter_0)
 ]
 
-# Do nothing
-p_do_nothing = {"null": "null"}
 
-### SINTASSI
+
+
+
+
+"""
+SYNTAX
+
+Here we decide what function goes with which symbol.
+The following syntax is the one made for libertà font.
+"""
 
 sintassi = {
+    # Do nothing
     ".": (do_nothing, p_do_nothing),
-    "@": (do_nothing, p_do_nothing),
+    # Main structure
     "#": (symbol_list, p_symbol_list),
-    #"#": (rectangle , p_rectangle),
+    # Serifs
+    "@": (do_nothing, p_do_nothing),
+    # Corners
     "%": (do_nothing, p_do_nothing),
     "&": (do_nothing, p_do_nothing),
+    "+": (do_nothing, p_do_nothing),
     "$": (do_nothing, p_do_nothing),
-    "+": (do_nothing, p_do_nothing)
 }
 
 
