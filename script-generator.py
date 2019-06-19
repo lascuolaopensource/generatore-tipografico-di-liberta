@@ -233,10 +233,10 @@ sintassi = {
     # Serifs
     "@": (do_nothing, p_do_nothing),
     # Corners
-    "%": (do_nothing, p_do_nothing),
-    "&": (do_nothing, p_do_nothing),
-    "+": (do_nothing, p_do_nothing),
-    "$": (do_nothing, p_do_nothing),
+    "%": (ellipse_quarter, p_ellipse_quarter_NW),
+    "&": (ellipse_quarter, p_ellipse_quarter_NE),
+    "+": (ellipse_quarter, p_ellipse_quarter_SW),
+    "$": (ellipse_quarter, p_ellipse_quarter_SE)
 }
 
 
