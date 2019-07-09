@@ -41,27 +41,32 @@ set_suffix = ""
 
 
 
-### SYMBOL CHOICE
-# This is an example of loading a symbol from ufo file
+"""
+IMPORTANT
+Uncomment the following part if you want to use symbols
+"""
 
-# Absolute path of symbols font
-font_symbols_path = os.getcwd() + "/assets/symbols/test-symbols.ufo"
+# ### SYMBOL CHOICE
+# # This is an example of loading a symbol from ufo file
 
-# Opening font containing symbols
-font_symbols = OpenFont(font_symbols_path)
+# # Absolute path of symbols font
+# font_symbols_path = os.getcwd() + "/assets/symbols/test-symbols.ufo"
 
-## Now you can:
+# # Opening font containing symbols
+# font_symbols = OpenFont(font_symbols_path)
 
-# A) USE SYMBOL FUNCTION - You can choose a specific symbol glyph from font
-gly_symbol = font_symbols["test_symbol-0"]
+# ## Now you can:
 
-# B) USE SYMBOL_LIST FUNCTION - You can create a list of symbols that will be randomly chosen
-gly_lst = [
-    font_symbols["test_symbol-0"],
-    font_symbols["test_symbol-1"],
-    font_symbols["test_symbol-2"],
-    font_symbols["test_symbol-3"],
-    ]
+# # A) USE SYMBOL FUNCTION - You can choose a specific symbol glyph from font
+# gly_symbol = font_symbols["test_symbol-0"]
+
+# # B) USE SYMBOL_LIST FUNCTION - You can create a list of symbols that will be randomly chosen
+# gly_lst = [
+#     font_symbols["test_symbol-0"],
+#     font_symbols["test_symbol-1"],
+#     font_symbols["test_symbol-2"],
+#     font_symbols["test_symbol-3"],
+#     ]
 
 
 
@@ -140,23 +145,29 @@ p_ellipse_quarter = {
     "clockwise": True
 }
 
-# symbol
-p_symbol = {
-    "source_glyph": gly_symbol,
-    "scale": (1,1),
-    "rotation": 5,
-    "proportions_keep": False,
-    "proportions_mode": "X"
-    }
 
-# symbol_list
-p_symbol_list = {
-    "source_glyph_list": gly_lst,
-    "scale": (1,1),
-    "rotation": 5,
-    "proportions_keep": False,
-    "proportions_mode": "X"
-    }
+"""
+IMPORTANT
+Uncomment the following part if you want to use symbols
+"""
+
+# # symbol
+# p_symbol = {
+#     "source_glyph": gly_symbol,
+#     "scale": (1,1),
+#     "rotation": 5,
+#     "proportions_keep": False,
+#     "proportions_mode": "X"
+#     }
+
+# # symbol_list
+# p_symbol_list = {
+#     "source_glyph_list": gly_lst,
+#     "scale": (1,1),
+#     "rotation": 5,
+#     "proportions_keep": False,
+#     "proportions_mode": "X"
+#     }
 
 ## EXTRAS 1 - Rhombus, triangles
 
